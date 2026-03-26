@@ -88,7 +88,7 @@ body{font-family:var(--font);-webkit-font-smoothing:antialiased;color:var(--text
 .section-header{margin-bottom:56px;position:relative;z-index:1;text-align:center}
 .section-tag{font-family:var(--font-heading);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
 .section-title{font-family:var(--font-heading);font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-.02em;text-transform:uppercase;line-height:1.05;margin-bottom:16px;font-style:normal;color:#FFFFFF}
-.section-desc{font-size:16px;color:var(--muted);max-width:640px;font-style:normal;margin-left:auto;margin-right:auto}
+.section-desc{font-size:16px;color:var(--muted);max-width:640px;font-style:normal;margin-left:auto;margin-right:auto;text-align:center}
 
 /* ---- COLLAPSIBLE PANELS ---- */
 .panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;transition:border-color .2s}
@@ -109,7 +109,7 @@ body{font-family:var(--font);-webkit-font-smoothing:antialiased;color:var(--text
 .gap-table tr:hover td{background:rgba(255,255,255,0.02)}
 
 /* ---- CARDS ---- */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1300px;margin-left:auto;margin-right:auto}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .25s;position:relative;overflow:hidden}
 .card:hover{border-color:var(--border-hover);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
 .card h3{font-family:var(--font-heading);font-size:13px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--text);margin-bottom:10px}
