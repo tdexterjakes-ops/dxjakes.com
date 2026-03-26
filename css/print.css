@@ -1,0 +1,234 @@
+/* ══════════════════════════════════════════════
+   DX — PRINT STYLESHEET
+   Typeset book-quality output for essay pages
+   ══════════════════════════════════════════════ */
+
+@media print {
+
+  /* ── RESET ── */
+  *, *::before, *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* ── HIDE UI ELEMENTS ── */
+  .accent-top,
+  .nav,
+  .corner,
+  .status-bar,
+  .nav-progress,
+  .share-bar,
+  .subscribe-link,
+  .post-footer,
+  .pulse-dot,
+  body::before,
+  body::after { display: none !important; }
+
+  /* ── PAGE SETUP ── */
+  @page {
+    margin: 1in 1.2in;
+    size: letter;
+  }
+
+  html, body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    overflow: visible !important;
+  }
+
+  .wrapper {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    animation: none !important;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .post-title {
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 28pt;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 12pt;
+    page-break-after: avoid;
+  }
+
+  .post-eyebrow {
+    font-size: 8pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8pt;
+    opacity: 0.6 !important;
+  }
+
+  .post-deck {
+    font-size: 11pt;
+    font-style: italic;
+    line-height: 1.6;
+    border-left: 2pt solid #000 !important;
+    padding-left: 14pt;
+    margin-bottom: 24pt;
+    opacity: 0.7 !important;
+  }
+
+  .post-header {
+    margin-bottom: 36pt;
+    page-break-after: avoid;
+  }
+
+  .post-body {
+    font-size: 11pt;
+    line-height: 1.75;
+  }
+
+  .post-body p {
+    margin-bottom: 10pt;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* ── DROP CAP ── */
+  .post-body .intro::first-letter {
+    font-size: 48pt;
+    font-weight: 900;
+    float: left;
+    line-height: 0.8;
+    margin-right: 6pt;
+    margin-top: 2pt;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-head {
+    margin: 24pt 0 12pt;
+    page-break-after: avoid;
+  }
+
+  .section-head h2 {
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .section-head-line {
+    display: none;
+  }
+
+  /* ── PULL QUOTES ── */
+  .pull-quote {
+    margin: 18pt 0;
+    padding: 14pt 0;
+    border-top: 1pt solid #000 !important;
+    border-bottom: 1pt solid #000 !important;
+  }
+
+  .pull-quote p {
+    font-size: 14pt;
+    font-weight: 800;
+    line-height: 1.35;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  }
+
+  /* ── CALLOUTS ── */
+  .callout {
+    margin: 14pt 0;
+    padding-left: 14pt;
+    border-left: 2pt solid #000 !important;
+    font-size: 12pt;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  /* ── SCRIPTURE BLOCKS ── */
+  .scripture {
+    margin: 14pt 0;
+    padding: 12pt 14pt;
+    border: 1pt solid #ccc !important;
+  }
+
+  .scripture p {
+    font-style: italic;
+    font-size: 10pt;
+  }
+
+  .scripture cite {
+    font-style: normal;
+    font-size: 7pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ── STAT BLOCKS ── */
+  .stat-block {
+    margin: 18pt 0;
+    border-left: 2pt solid #000 !important;
+    padding-left: 14pt;
+  }
+
+  .stat-block-bar { display: none; }
+
+  .stat-block-text {
+    font-size: 16pt;
+    font-weight: 900;
+    line-height: 1.2;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  }
+
+  .stat-block-text span {
+    font-size: 8pt;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 6pt;
+  }
+
+  /* ── SCRIPTURE REFERENCE LIST ── */
+  .scripture-list { border-top: 1pt solid #ccc !important; }
+  .scripture-item { border-bottom: 1pt solid #eee !important; }
+
+  .scripture-ref {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    margin-top: 24pt;
+    padding: 14pt;
+    border: 1pt solid #ccc !important;
+    font-style: italic;
+    page-break-inside: avoid;
+  }
+
+  .closing strong {
+    font-style: normal;
+    font-size: 7pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* ── HORIZONTAL RULE ── */
+  .hr { margin: 18pt 0; }
+  .hr-line { border-top: 1pt solid #ccc !important; }
+  .hr-dot { background: #000 !important; }
+
+  /* ── REVEAL OVERRIDES ── */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* ── LINKS ── */
+  a[href]::after {
+    content: none; /* Don't print URLs — keeps it clean */
+  }
+}

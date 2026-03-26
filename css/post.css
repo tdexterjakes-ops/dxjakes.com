@@ -1,0 +1,214 @@
+/* ══════════════════════════════════════════════
+   DX — POST / ESSAY TEMPLATE
+   ══════════════════════════════════════════════ */
+
+:root { --dim: rgba(255,255,255,0.05); }
+
+body { cursor: auto; }
+
+/* ── WRAPPER ── */
+.wrapper {
+  position: relative; z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 110px 28px 120px;
+}
+
+/* ── POST HEADER ── */
+.post-header { margin-bottom: 64px; }
+
+.post-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.post-tag {
+  font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--red); padding: 3px 9px;
+  border: 2px solid rgba(225,52,34,0.4); border-radius: 0;
+  font-weight: 700;
+}
+.post-date, .post-read {
+  font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+.post-title {
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  color: #fff;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+.post-deck {
+  font-size: 16px; line-height: 1.65;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.01em;
+  max-width: 540px;
+  font-style: italic;
+  border-left: 2px solid rgba(255,255,255,0.08);
+  padding-left: 20px;
+}
+
+/* ── BODY ── */
+.post-body {
+  font-size: 17px; line-height: 1.85;
+  color: rgba(255,255,255,0.88);
+  letter-spacing: 0.008em;
+}
+.post-body p { margin-bottom: 1.5em; }
+
+/* Brutalist underlined links */
+.post-body a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: none;
+}
+.post-body a:hover,
+.post-body a:focus-visible {
+  color: var(--red);
+}
+
+/* Drop cap */
+.post-body .intro::first-letter {
+  font-size: 5.2em; font-weight: 900;
+  float: left; line-height: 0.78;
+  margin-right: 10px; margin-top: 6px;
+  color: #fff; letter-spacing: -0.02em;
+}
+
+/* ── SECTION HEADER ── */
+.section-head {
+  display: flex; align-items: center; gap: 16px;
+  margin: 64px 0 24px;
+}
+.section-head-line { flex: 1; height: 2px; background: rgba(255,255,255,0.08); }
+.section-head h2 {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--red); opacity: 0.8; white-space: nowrap;
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  margin: 56px -28px; padding: 44px 28px;
+  background: rgba(225,52,34,0.05) url('/img/dither-texture.png') repeat;
+  border-top: 2px solid rgba(225,52,34,0.3);
+  border-bottom: 2px solid rgba(225,52,34,0.3);
+}
+.pull-quote p {
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 900; line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: rgba(255,255,255,0.95);
+  margin: 0; font-style: normal;
+  text-transform: uppercase;
+}
+
+/* ── CALLOUT ── */
+.callout {
+  margin: 40px 0; padding: 0 0 0 22px;
+  border-left: 3px solid var(--red);
+  font-size: 19px; font-weight: 700;
+  line-height: 1.4; letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.85);
+  font-style: normal;
+}
+.callout p { margin: 0; }
+
+/* ── SCRIPTURE BLOCK ── */
+.scripture {
+  background: rgba(255,255,255,0.03);
+  border: 2px solid rgba(255,255,255,0.08);
+  padding: 28px 28px 24px; margin: 40px 0;
+}
+.scripture p {
+  font-size: 16px; line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  font-style: italic; margin: 0 0 12px !important;
+}
+.scripture cite {
+  font-style: normal;
+  font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--red); opacity: 0.7;
+}
+
+/* ── STAT / EMPHASIS BLOCK ── */
+.stat-block {
+  margin: 60px -28px;
+  padding: 0 28px;
+  display: grid; grid-template-columns: 4px 1fr; gap: 0 28px;
+}
+.stat-block-bar { background: var(--red); opacity: 0.8; }
+.stat-block-text {
+  font-size: clamp(26px, 5vw, 40px); font-weight: 900;
+  letter-spacing: -0.035em; line-height: 1.1;
+  color: rgba(255,255,255,0.92);
+  text-transform: uppercase;
+}
+.stat-block-text span {
+  display: block; font-size: 11px; font-weight: 400;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25); margin-top: 10px;
+}
+
+/* ── HORIZONTAL RULE ── */
+.hr {
+  display: flex; align-items: center; gap: 12px;
+  margin: 56px 0;
+}
+.hr-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--red); opacity: 0.5; }
+.hr-line { flex: 1; height: 2px; background: rgba(255,255,255,0.08); }
+
+/* ── SCRIPTURE REFERENCE LIST ── */
+.scripture-list {
+  margin: 36px 0;
+  border-top: 2px solid rgba(255,255,255,0.1);
+}
+.scripture-item {
+  display: grid; grid-template-columns: 140px 1fr;
+  gap: 20px; padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 14px; line-height: 1.7; align-items: start;
+}
+.scripture-ref {
+  font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--red); opacity: 0.7; font-weight: 700; padding-top: 3px;
+}
+.scripture-note { color: rgba(255,255,255,0.62); }
+
+/* ── CLOSING ── */
+.closing {
+  margin-top: 56px; padding: 40px;
+  background: rgba(255,255,255,0.02);
+  border: 2px solid rgba(255,255,255,0.08);
+  font-size: 16px; line-height: 1.8;
+  color: rgba(255,255,255,0.62);
+  font-style: italic;
+}
+.closing strong {
+  display: block; font-size: 11px; font-style: normal;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2); margin-bottom: 14px;
+}
+
+/* ── POST FOOTER ── */
+.post-footer {
+  margin-top: 80px; padding-top: 28px;
+  border-top: 2px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.back-link {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25); text-decoration: none;
+  transition: none;
+}
+.back-link:hover, .back-link:focus-visible { color: rgba(255,255,255,0.7); }
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .wrapper { padding: 90px 20px 80px; }
+  .scripture-item { grid-template-columns: 1fr; gap: 4px; }
+}

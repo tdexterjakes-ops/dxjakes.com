@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DX — Dexter Jakes</title>
+<meta name="description" content="Dexter Jakes. Writer. Strategist. Faith-grounded.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="DX — Dexter Jakes">
+<meta property="og:description" content="Writer. Strategist. Faith-grounded.">
+<meta property="og:image" content="https://dxjakes.com/img/og-default.png">
+<meta property="og:url" content="https://dxjakes.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DX">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DX — Dexter Jakes">
+<meta name="twitter:description" content="Writer. Strategist. Faith-grounded.">
+<meta name="twitter:image" content="https://dxjakes.com/img/og-default.png">
+
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="accent-top" aria-hidden="true"></div>
+
+<span class="corner c-tl" aria-hidden="true">dxjakes.com</span>
+<span class="corner c-tr" aria-hidden="true">Est. 1994</span>
+<span class="corner c-bl" aria-hidden="true">&copy; 2026</span>
+
+<div class="wrapper">
+  <main class="hero" id="main">
+
+    <div class="logo-wrap entrance e1" role="img" aria-label="DX — Dexter Jakes" ondragstart="return false">
+      <img src="/img/logo-dithered.png" alt="" aria-hidden="true">
+    </div>
+
+    <div class="identity entrance e2">
+      <h1 class="name">ImJustDex</h1>
+    </div>
+
+    <div class="tagline-wrap entrance e3" aria-live="polite" aria-atomic="true">
+      <p class="tagline" id="tagline"></p>
+    </div>
+
+    <a href="/words" class="enter-link entrance e4" aria-label="Read words — essays by Dexter Jakes">Words &rarr;</a>
+
+  </main>
+
+  <footer class="statusbar entrance e5" aria-hidden="true">
+    <span class="status-left"><span class="pulse"></span></span>
+    <span class="status-clock" id="clock"></span>
+  </footer>
+</div>
+
+
+<!-- ── ASTEROIDS EASTER EGG ── -->
+<div id="ast-overlay" style="display:none;position:fixed;inset:0;z-index:999;background:#000;align-items:center;justify-content:center;">
+  <canvas id="ast-canvas" style="display:block;"></canvas>
+
+  <!-- HUD -->
+  <div style="position:absolute;top:16px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;">
+    <div id="ast-hud" style="display:flex;gap:48px;align-items:center;">
+      <span style="font-family:'Helvetica Neue',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.25);">score &mdash; <b id="ast-score-val" style="color:rgba(255,255,255,0.5)">0</b></span>
+      <span style="font-family:'Helvetica Neue',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.25);">wave &mdash; <b id="ast-wave-val" style="color:rgba(255,255,255,0.5)">1</b> <span style="opacity:.4">/ 3</span></span>
+      <span style="font-family:'Helvetica Neue',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.25);">time &mdash; <b id="ast-wavetimer-val" style="color:rgba(255,255,255,0.5)">1:00</b></span>
+      <span style="font-family:'Helvetica Neue',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.25);">lives &mdash; <b id="ast-lives-val" style="color:rgba(255,255,255,0.5)">3</b></span>
+    </div>
+    <!-- Health bar -->
+    <div id="ast-healthbar-wrap">
+      <div style="width:180px;height:3px;background:rgba(255,255,255,0.08);">
+        <div id="ast-healthbar" style="height:3px;width:100%;background:#E13422;transition:width 0.15s ease,background 0.3s ease;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div id="ast-controls" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);text-align:center;font-family:'Helvetica Neue',sans-serif;text-transform:uppercase;white-space:nowrap;display:flex;flex-direction:column;align-items:center;gap:8px;">
+    <div style="font-size:9px;letter-spacing:0.25em;color:rgba(255,255,255,0.55);">&larr; &rarr; rotate &nbsp;&middot;&nbsp; &uarr; thrust &nbsp;&middot;&nbsp; &darr; reverse &nbsp;&middot;&nbsp; space shoot &nbsp;&middot;&nbsp; esc exit</div>
+    <div style="font-size:8px;letter-spacing:0.15em;color:rgba(255,80,80,0.55);">&DoubleRightArrow; best experienced on desktop or laptop</div>
+  </div>
+
+  <!-- Wave banner -->
+  <div id="ast-wave-banner" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:12px;pointer-events:none;">
+    <p id="ast-wave-banner-text" style="font-family:'Helvetica Neue',sans-serif;font-size:clamp(28px,6vw,72px);font-weight:900;letter-spacing:0.1em;color:#fff;text-transform:uppercase;margin:0;transition:opacity 0.3s;opacity:0;"></p>
+    <p id="ast-wave-sub" style="font-family:'Helvetica Neue',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin:0;transition:opacity 0.3s;opacity:0;"></p>
+  </div>
+
+  <!-- End screen -->
+  <div id="ast-end" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:20px;">
+    <p id="ast-end-score" style="font-family:'Helvetica Neue',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin:0;"></p>
+    <p id="ast-end-text" style="font-family:'Helvetica Neue',sans-serif;font-size:clamp(16px,3vw,26px);font-weight:900;letter-spacing:0.05em;color:#fff;text-transform:lowercase;line-height:1.4;text-align:center;max-width:500px;padding:0 24px;margin:0;"></p>
+    <p style="font-family:'Helvetica Neue',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin:0;">click anywhere to close</p>
+  </div>
+</div>
+
+<script src="/js/home.js"></script>
+<script src="/js/asteroids.js"></script>
+</body>
+</html>

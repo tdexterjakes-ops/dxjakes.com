@@ -1,0 +1,125 @@
+/* ══════════════════════════════════════════════
+   DX — WRITING INDEX
+   ══════════════════════════════════════════════ */
+
+:root { --dim: rgba(255,255,255,0.06); }
+
+.wrapper {
+  position: relative; z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 120px 28px 120px;
+}
+
+.nav-logo { width: 32px; opacity: 0.8; }
+.nav-logo:hover { opacity: 1; }
+
+.index-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255,255,255,0.12);
+}
+.index-title {
+  font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+.index-meta {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+}
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex; align-items: center; gap: 0;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+  overflow-x: auto; scrollbar-width: none;
+}
+.filter-bar::-webkit-scrollbar { display: none; }
+.filter-btn {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-weight: 700;
+  padding: 14px 20px;
+  border: none; border-bottom: 2px solid transparent;
+  background: transparent;
+  color: rgba(255,255,255,0.2);
+  cursor: crosshair;
+  transition: color 0s, border-color 0s;
+  white-space: nowrap;
+  margin-bottom: -1px;
+}
+.filter-btn:hover, .filter-btn:focus-visible { color: rgba(255,255,255,0.55); }
+.filter-btn.active { color: #fff; border-bottom: 2px solid var(--red); }
+.filter-btn:focus-visible { outline-offset: -2px; }
+
+/* ── POST LIST ── */
+.post-list { display: flex; flex-direction: column; }
+
+.entry {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: start; gap: 24px;
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none; color: inherit;
+  cursor: crosshair; position: relative;
+  transition: none;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.entry.hidden { display: none; }
+.entry:hover, .entry:focus-visible { background: rgba(255,255,255,0.018); margin: 0 -28px; padding: 48px 28px; }
+.entry:hover .entry-title, .entry:focus-visible .entry-title { color: #fff; }
+.entry:hover .entry-reveal, .entry:focus-visible .entry-reveal { max-height: 80px; opacity: 1; margin-top: 12px; }
+.entry:hover .entry-arrow, .entry:focus-visible .entry-arrow { opacity: 1; transform: translateX(0); }
+
+.entry-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.entry-new {
+  font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--red); padding: 3px 8px;
+  border: 2px solid rgba(225,52,34,0.5); border-radius: 0;
+  font-weight: 700;
+}
+.entry-tag {
+  font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--red); opacity: 0.75;
+}
+.entry-date {
+  font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.entry-title {
+  font-size: clamp(24px, 4vw, 36px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.05;
+  color: rgba(255,255,255,0.85); transition: none;
+}
+.entry-reveal {
+  font-size: 13px; line-height: 1.7;
+  color: rgba(255,255,255,0.3);
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 0.25s ease, opacity 0.2s ease, margin-top 0.2s ease;
+  max-width: 580px; letter-spacing: 0.01em;
+}
+
+.entry-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; padding-top: 4px; }
+.entry-read {
+  font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); white-space: nowrap;
+}
+.entry-arrow {
+  font-size: 14px; color: rgba(255,255,255,0.25);
+  opacity: 0; transform: translateX(-6px);
+  transition: none;
+}
+
+/* ── EMPTY STATE ── */
+.empty-state {
+  padding: 72px 0;
+  font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .wrapper { padding: 100px 20px 80px; }
+  .entry-right { display: none; }
+  .entry { grid-template-columns: 1fr; }
+}

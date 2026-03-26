@@ -1,0 +1,170 @@
+/* ══════════════════════════════════════════════
+   DX — HOMEPAGE
+   ══════════════════════════════════════════════ */
+
+/* ── LAYOUT ── */
+.wrapper {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+}
+
+/* ── HERO ── */
+.hero {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 24px 20px;
+  position: relative;
+}
+
+/* ── LOGO ── */
+.logo-wrap {
+  position: relative;
+  width: min(360px, 60vw);
+  margin-bottom: 24px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.logo-wrap img {
+  width: 100%; height: auto; display: block;
+  mix-blend-mode: normal;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.logo-wrap:hover img {
+  opacity: 0.9;
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* ── HORIZONTAL RULE ── */
+.divider {
+  width: min(480px, 72vw);
+  margin: 52px auto 48px;
+  display: flex; align-items: center; gap: 16px;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+}
+.divider-text {
+  font-size: 8px; letter-spacing: 0.35em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2); white-space: nowrap;
+}
+
+/* ── IDENTITY BLOCK ── */
+.identity {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.name {
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 900;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  line-height: 1;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ── ENTER LINK (centered) ── */
+.enter-link {
+  margin-top: 32px;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  transition: none;
+  cursor: crosshair;
+  padding: 10px 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Courier New', monospace;
+}
+.enter-link:hover,
+.enter-link:focus-visible {
+  color: var(--white);
+  border-color: var(--red);
+  background: rgba(225,52,34,0.06);
+}
+
+/* ── ROTATING TAGLINE ── */
+.tagline-wrap {
+  text-align: center;
+  margin-bottom: 0;
+  min-height: 20px;
+}
+.tagline {
+  font-size: clamp(11px, 1.4vw, 13px);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.28);
+  line-height: 1.6;
+  margin: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* ── STATUS BAR ── */
+.statusbar {
+  position: relative; z-index: 1;
+  border-top: 2px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 28px;
+}
+
+.status-left, .status-right {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.14);
+}
+
+.status-clock {
+  font-family: 'Courier New', monospace;
+  font-size: 10px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.18);
+}
+
+/* ── ENTRANCE STAGGER ── */
+.entrance {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: entranceFade 0.6s ease-out forwards;
+}
+@keyframes entranceFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+.e1 { animation-delay: 0.1s; }
+.e2 { animation-delay: 0.3s; }
+.e3 { animation-delay: 0.55s; }
+.e4 { animation-delay: 0.75s; }
+.e5 { animation-delay: 0.95s; }
+
+/* ── RESPONSIVE ── */
+
+/* Short viewports — tighten everything to stay above the fold */
+@media (max-height: 700px) {
+  .hero { padding: 24px 24px 12px; }
+  .logo-wrap { width: min(260px, 50vw); margin-bottom: 16px; }
+  .identity { margin-bottom: 16px; }
+  .tagline-wrap { min-height: 16px; }
+  .enter-link { margin-top: 20px; }
+  .statusbar { padding: 10px 28px; }
+}
+
+@media (max-height: 500px) {
+  .logo-wrap { width: min(180px, 40vw); margin-bottom: 12px; }
+  .identity { margin-bottom: 10px; }
+  .enter-link { margin-top: 14px; }
+}
+
+/* Narrow screens */
+@media (max-width: 560px) {
+  .c-tr, .c-bl { display: none; }
+  .logo-wrap { width: min(280px, 65vw); }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .hero { padding: 28px 16px 12px; }
+  .logo-wrap { width: min(220px, 70vw); }
+  .corner { font-size: 7px; }
+}

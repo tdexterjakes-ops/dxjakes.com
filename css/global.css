@@ -1,0 +1,273 @@
+/* ══════════════════════════════════════════════
+   DX — GLOBAL STYLES
+   Shared across all personal site pages
+   ══════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --red: #E13422;
+  --dim: rgba(255,255,255,0.08);
+  --muted: rgba(255,255,255,0.22);
+  --focus: rgba(225,52,34,0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;  /* hidden here, not on body — keeps viewport as scroll container */
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+body {
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--white);
+  font-family: system-ui, -apple-system, sans-serif;
+  cursor: crosshair;
+}
+
+/* ── MONO UTILITY — brutalist functional text ── */
+.mono,
+.post-date, .post-read, .post-tag,
+.entry-date, .entry-tag, .entry-new, .entry-read,
+.footer-note, .index-title, .index-meta,
+.filter-btn, .share-label, .share-link,
+.back-link, .nav-back,
+.scripture-ref, .closing strong,
+.section-head h2 {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ── SKIP LINK ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0 0 3px 3px;
+}
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+/* ── SCREEN READER ONLY ── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── FOCUS VISIBLE ── */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+/* Remove outline for mouse/touch users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── GRID OVERLAY ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* ── FILM GRAIN / NOISE TEXTURE ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* ── TOP ACCENT ── */
+.accent-top {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--red); z-index: 100;
+  animation: accentBreathe 6s ease-in-out infinite;
+}
+
+@keyframes accentBreathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+/* ── CORNER LABELS ── */
+.corner {
+  position: fixed; z-index: 10;
+  font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.18); font-weight: 400;
+  mix-blend-mode: normal;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Courier New', monospace;
+}
+.c-tl { top: 24px; left: 28px; }
+.c-tr { top: 24px; right: 28px; }
+.c-bl { bottom: 24px; left: 28px; }
+.c-br { bottom: 24px; right: 28px; }
+
+/* ── NAV (inner pages) ── */
+.nav {
+  position: fixed; top: 3px; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 28px;
+  background: rgba(0,0,0,0.95);
+}
+.nav-logo { display: block; width: 30px; opacity: 0.75; transition: opacity 0.2s; text-decoration: none; }
+.nav-logo:hover { opacity: 1; }
+.nav-logo img { width: 100%; display: block; }
+.nav-back {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25); text-decoration: none;
+  transition: none; cursor: crosshair;
+}
+.nav-back:hover, .nav-back:focus-visible { color: rgba(255,255,255,0.7); }
+
+/* ── PULSE DOT ── */
+.pulse-dot,
+.pulse {
+  display: inline-block; width: 4px; height: 4px;
+  background: rgba(255,255,255,0.45); border-radius: 50%;
+  animation: pulse 3.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.2; transform: scale(0.5); }
+}
+
+/* ── PAGE TRANSITIONS ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.wrapper { animation: fadeIn 0.4s ease-out both; }
+
+/* ── READING PROGRESS (nav-anchored) ── */
+.nav-progress {
+  position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 3px; background: rgba(255,255,255,0.03);
+  pointer-events: none;
+}
+.nav-progress-bar {
+  height: 100%; width: 0%;
+  background: #fff;
+  /* no shadow — hard edge */
+  will-change: width;
+}
+
+/* ── FOOTER ── */
+.page-footer {
+  margin-top: 80px; padding-top: 28px;
+  border-top: 2px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-note {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+}
+
+/* ── SUBSCRIBE / CTA LINKS ── */
+.subscribe-link {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); text-decoration: none;
+  transition: none;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.subscribe-link:hover,
+.subscribe-link:focus-visible {
+  color: var(--white);
+  border-color: var(--red);
+  background: rgba(225,52,34,0.08);
+}
+
+/* ── SHARE BAR ── */
+.share-bar {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 48px; padding-top: 24px;
+  border-top: 2px solid rgba(255,255,255,0.1);
+}
+.share-label {
+  font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+.share-link {
+  font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); text-decoration: none;
+  transition: none;
+}
+.share-link:hover, .share-link:focus-visible { color: var(--white); }
+
+/* Copy button — styled to match share links */
+button.share-link {
+  background: none; border: none; cursor: crosshair;
+  font-family: inherit; padding: 0;
+}
+
+/* ── SCROLL-TRIGGERED SECTION REVEALS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── TERMINAL STATUS BAR ── */
+.status-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 28px;
+  background: rgba(0,0,0,0.95);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'Courier New', monospace;
+  font-size: 10px; letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.3);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.status-bar-section { color: rgba(255,255,255,0.45); }
+.status-bar-meta { color: rgba(255,255,255,0.18); font-size: 9px; letter-spacing: 0.1em; }
+.status-bar-time { color: var(--red); opacity: 0.6; }
+.status-bar-keys {
+  font-size: 9px; letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.15);
+}
+.status-bar-keys kbd {
+  display: inline-block; padding: 1px 5px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 2px; margin: 0 2px;
+  font-family: inherit; font-size: inherit;
+}
