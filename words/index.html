@@ -67,7 +67,7 @@
       </div>
     </a>
 
-    <a href="/words/reckonings" class="entry" data-tags="faith" aria-label="I Don't Do Resolutions. I Do Reckonings. — Faith, 8 min read">
+    <a href="/words/reckonings" class="entry" data-tags="faith" data-gate="2026-04-01" style="display:none" aria-label="I Don't Do Resolutions. I Do Reckonings. — Faith, 8 min read">
       <div class="entry-left">
         <div class="entry-eyebrow">
           <span class="entry-tag">Faith</span>
@@ -123,6 +123,17 @@
 
 </main>
 
+<script>
+// Date gate: show gated entries only after their release date (CDT)
+document.querySelectorAll('[data-gate]').forEach(function(el) {
+  var gate = new Date(el.dataset.gate + 'T00:00:00-05:00');
+  if (new Date() >= gate) { el.style.display = ''; }
+});
+// Update entry count to reflect visible entries
+var visible = document.querySelectorAll('.entry:not([style*="display:none"])').length;
+var counter = document.getElementById('entry-count');
+if (counter) counter.textContent = visible + (visible === 1 ? ' entry' : ' entries');
+</script>
 <script src="/js/filter.js"></script>
 </body>
 </html>
