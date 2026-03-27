@@ -386,7 +386,10 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
       <a href="#dependencies" onclick="scrollToSection(event,'dependencies')">Dependencies</a>
       <a href="#container" onclick="scrollToSection(event,'container')">Template</a>
       <a href="#views" onclick="scrollToSection(event,'views')">Views</a>
-      <a href="#discuss" onclick="scrollToSection(event,'discuss')">Discuss</a>
+      <a href="#risks" onclick="scrollToSection(event,'risks')">Risks</a>
+      <a href="#sla" onclick="scrollToSection(event,'sla')">SLAs</a>
+      <a href="#phase2" onclick="scrollToSection(event,'phase2')">Phase 2</a>
+      <a href="#discuss" onclick="scrollToSection(event,'discuss')">Decisions</a>
     </div>
   </div>
 </nav>
@@ -398,9 +401,9 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
   <p class="hero-sub">Restructuring Marketing Project Intake and Marketing Team Kanban Board to implement the 12-stage RACI production workflow — with automations, dependencies, naming conventions, saved views, and milestone gates.</p>
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">3</div><div class="label">Board Views</div></div>
-    <div class="hero-stat"><div class="num">16</div><div class="label">Automations</div></div>
-    <div class="hero-stat"><div class="num">25</div><div class="label">Dependencies</div></div>
-    <div class="hero-stat"><div class="num">7</div><div class="label">Milestones</div></div>
+    <div class="hero-stat"><div class="num">17</div><div class="label">Automations</div></div>
+    <div class="hero-stat"><div class="num">26</div><div class="label">Dependencies</div></div>
+    <div class="hero-stat"><div class="num">9</div><div class="label">Milestones</div></div>
   </div>
   <div class="hero-meta">
     <span><strong>Prepared for:</strong> PMs + Ops Lead Meeting</span>
@@ -428,7 +431,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
     <span class="stage-arrow">→</span>
     <div class="stage-pill" onclick="showStage(this,5)"><span class="snum">6</span><span class="sname">Production</span></div>
     <span class="stage-arrow">→</span>
-    <div class="stage-pill gate" onclick="showStage(this,6)"><span class="snum">⬥</span><span class="sname">Gate 6.5</span></div>
+    <div class="stage-pill gate" onclick="showStage(this,6)"><span class="snum">⬥</span><span class="sname">Asset Delivery</span></div>
     <span class="stage-arrow">→</span>
     <div class="stage-pill" onclick="showStage(this,7)"><span class="snum">7</span><span class="sname">Post-Prod</span></div>
     <span class="stage-arrow">→</span>
@@ -450,6 +453,36 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
     <div id="stageTitle" style="font-family:var(--font-heading);font-size:16px;font-weight:700;margin-bottom:8px">Stage 1 — Request Intake</div>
     <div id="stageProject" style="font-size:12px;color:var(--accent);font-weight:600;margin-bottom:12px">INTAKE PROJECT</div>
     <div id="stageDesc" style="font-size:14px;color:var(--muted);line-height:1.7">All requests enter through the intake form and land in "Signal Received." PM triages, assigns to pod MSD. Three intake lanes (Strategic, Operational, Rapid Support) determine routing and lifecycle complexity.</div>
+  </div>
+</div>
+
+<!-- ==================== LANE COVERAGE ==================== -->
+<div class="section section-light" data-watermark="LANES" style="padding:72px 0">
+  <div class="section-header" style="margin-bottom:32px">
+    <div class="section-tag" style="color:var(--accent)">Not Every Request Hits 12 Stages</div>
+    <div class="section-title">Lane Coverage</div>
+    <p class="section-desc">The full lifecycle applies to strategic campaigns. Operational and Rapid Support skip stages based on scope. Most work touches 5–8 stages.</p>
+  </div>
+  <table class="gap-table" style="max-width:1100px;margin:0 auto">
+    <tr><th>Stage</th><th style="text-align:center">Strategic</th><th style="text-align:center">Operational</th><th style="text-align:center">Rapid Support</th></tr>
+    <tr><td>1. Intake</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">●</td></tr>
+    <tr><td>2. Strategy / Capacity</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">○</td></tr>
+    <tr><td>3. Brief Creation</td><td style="text-align:center">●</td><td style="text-align:center">○</td><td style="text-align:center">—</td></tr>
+    <tr><td>4. Creative Direction</td><td style="text-align:center">●</td><td style="text-align:center">○</td><td style="text-align:center">—</td></tr>
+    <tr><td>5. Pre-Production</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">○</td></tr>
+    <tr><td>6. Production</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">●</td></tr>
+    <tr><td>⬥ Asset Delivery Confirmed</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">○</td></tr>
+    <tr><td>7. Post-Production</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">○</td></tr>
+    <tr><td>8. Creative Review</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">●</td></tr>
+    <tr><td>9. Final Approval</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">○</td></tr>
+    <tr><td>⬥ Gate 9.5</td><td style="text-align:center">●</td><td style="text-align:center">○</td><td style="text-align:center">—</td></tr>
+    <tr><td>10. Channel Adaptation</td><td style="text-align:center">●</td><td style="text-align:center">○</td><td style="text-align:center">—</td></tr>
+    <tr><td>⬥ Gate 10.5</td><td style="text-align:center">●</td><td style="text-align:center">○</td><td style="text-align:center">—</td></tr>
+    <tr><td>11. Distribution</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">●</td></tr>
+    <tr><td>12. Performance</td><td style="text-align:center">●</td><td style="text-align:center">●</td><td style="text-align:center">○</td></tr>
+  </table>
+  <div style="max-width:1100px;margin:16px auto 0;font-size:12px;color:#888;display:flex;gap:24px;justify-content:center">
+    <span>● Required</span><span>○ As needed / abbreviated</span><span>— Skipped</span>
   </div>
 </div>
 
@@ -499,7 +532,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
       <td><span class="badge badge-red">High</span></td>
     </tr>
     <tr>
-      <td><strong>No quality gates</strong> — Gate 6.5, 9.5, and 10.5 have no structural equivalent</td>
+      <td><strong>No quality gates</strong> — Asset Delivery Confirmed, Gate 9.5, and Gate 10.5 have no structural equivalent</td>
       <td>Work advances without verification. Assets reach distribution without creative review.</td>
       <td><span class="badge badge-red">High</span></td>
     </tr>
@@ -542,7 +575,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
   <div class="panel open" id="panelLanes">
     <div class="panel-header" onclick="togglePanel('panelLanes')">
       <h3><span style="width:10px;height:10px;border-radius:50%;background:var(--green);display:inline-block"></span> New Section Architecture</h3>
-      <div style="display:flex;align-items:center;gap:12px"><span class="panel-count">10 sections</span><svg class="panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="panel-count">11 sections</span><svg class="panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
     </div>
     <div class="panel-body">
       <div style="padding:0 24px 24px">
@@ -553,9 +586,10 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
           <tr><td><strong>Lane 3 — Rapid Support</strong></td><td>1</td><td>Same-week needs: date swaps, copy corrections. 24–72hr turnaround.</td><td>PM</td></tr>
           <tr class="gate-row"><td><strong>Signal Received</strong></td><td>1→2</td><td>Intake form submissions land here first</td><td>PM (triage)</td></tr>
           <tr class="gate-row"><td><strong>MSD Routing</strong></td><td>2</td><td>MSD assigns lane, initiates Strategy Brief (Lane 1)</td><td>MSD</td></tr>
-          <tr class="gate-row"><td><strong>Campaign Container Created</strong></td><td>2</td><td>PM builds container from brief — defines deliverables before capacity check</td><td>PM</td></tr>
-          <tr class="gate-row"><td><strong>Capacity Confirmed</strong></td><td>2</td><td>Ops Lead verifies bandwidth using container deliverables, assigns pod</td><td>Ops Lead (Kaylin)</td></tr>
-          <tr class="gate-row"><td><strong>Sprint Entry — Ready for Kanban</strong></td><td>2→3</td><td>Cleared for production. Container moves to Kanban Board.</td><td>PM</td></tr>
+          <tr class="gate-row"><td><strong>Scope Container</strong></td><td>2</td><td>PM defines deliverables from brief — lightweight scope list for capacity check. Not the full Asana build.</td><td>PM</td></tr>
+          <tr class="gate-row"><td><strong>Capacity Confirmed</strong></td><td>2</td><td>Ops Lead reviews scope against bandwidth. Green = proceed. Yellow = adjust scope. Red = escalate to Exec Dir.</td><td>Ops Lead (Kaylin)</td></tr>
+          <tr class="gate-row"><td><strong>Full Container Build</strong></td><td>2→3</td><td>PM builds full Campaign Container in Asana (24 subtasks, deps, milestones) after capacity clears.</td><td>PM</td></tr>
+          <tr class="gate-row"><td><strong>Sprint Entry — Ready for Kanban</strong></td><td>2→3</td><td>Container multi-homes to Kanban Board. Production begins.</td><td>PM</td></tr>
           <tr><td><strong>On Hold</strong></td><td>—</td><td>Paused requests awaiting information or capacity</td><td>PM</td></tr>
           <tr><td><strong>Declined</strong></td><td>—</td><td>Requests that don't meet governance rules. Logged with reason.</td><td>MSD</td></tr>
         </table>
@@ -570,13 +604,15 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
       <span class="flow-arrow">→</span>
       <span class="flow-step" style="border-color:var(--green)">MSD Routes</span>
       <span class="flow-arrow">→</span>
-      <span class="flow-step" style="border-color:var(--blue)">Container Built</span>
+      <span class="flow-step" style="border-color:var(--blue)">Scope Container</span>
       <span class="flow-arrow">→</span>
       <span class="flow-step" style="border-color:var(--green)">Capacity Confirmed</span>
       <span class="flow-arrow">→</span>
+      <span class="flow-step" style="border-color:var(--accent)">Full Build</span>
+      <span class="flow-arrow">→</span>
       <span class="flow-step" style="border-color:var(--accent);color:var(--accent)">Sprint Entry</span>
     </div>
-    <p style="margin-top:12px">Every request passes through all five steps. No exceptions. Campaign Container must exist before capacity check — you can't confirm bandwidth without knowing the deliverables.</p>
+    <p style="margin-top:12px">Scope Container is lightweight — deliverable list from the brief, not a full Asana build. Ops checks bandwidth against the scope. Full Campaign Container (24 subtasks, deps, milestones) gets built only after capacity clears. No throwaway work.</p>
   </div>
 
   <div class="panel" id="panelGov">
@@ -618,7 +654,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
         <div class="bento-arrow">→</div>
         <div class="bento-stage"><span class="bento-num">6</span><strong>Production</strong><span class="bento-meta">All raw assets delivered</span></div>
         <div class="bento-arrow">→</div>
-        <div class="bento-stage bento-gate"><span class="bento-num">⬥</span><strong>Gate 6.5</strong><span class="bento-meta">PM verifies all assets</span></div>
+        <div class="bento-stage bento-gate"><span class="bento-num">⬥</span><strong>Asset Delivery Confirmed</strong><span class="bento-meta">PM verifies all assets</span></div>
       </div>
     </div>
 
@@ -639,7 +675,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
         <div class="bento-item"><span class="bento-num-sm">10</span><div><strong>Channel Adaptation</strong><span class="bento-meta">All channel variants built + QA'd</span></div></div>
         <div class="bento-item bento-gate-item"><span class="bento-num-sm">⬥</span><div><strong>Gate 10.5</strong><span class="bento-meta">Cross-Channel Ready</span></div></div>
         <div class="bento-item"><span class="bento-num-sm">11</span><div><strong>Distribution</strong><span class="bento-meta">Published across channels</span></div></div>
-        <div class="bento-item"><span class="bento-num-sm">12</span><div><strong>Performance</strong><span class="bento-meta">Report delivered (14d post)</span></div></div>
+        <div class="bento-item"><span class="bento-num-sm">12</span><div><strong>Performance</strong><span class="bento-meta">48hr → 7-day → 30-day reports</span></div></div>
       </div>
     </div>
   </div>
@@ -661,17 +697,17 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
   <div class="section-header">
     <div class="section-tag" style="color:var(--accent)">Handoff Model</div>
     <div class="section-title">Intake → Kanban Bridge</div>
-    <p class="section-desc">The Campaign Container is built during intake — before capacity check. You can't confirm bandwidth without knowing the deliverables. Once capacity clears, the container multi-homes to Kanban and enters Brief Creation.</p>
+    <p class="section-desc">Two-step bridge: PM scopes deliverables (lightweight) for the capacity check, then builds the full Campaign Container only after capacity clears. No throwaway Asana builds.</p>
   </div>
 
   <div class="flow" style="justify-content:center;margin:32px 0">
     <span class="flow-step" style="border-color:var(--green);color:var(--green)">MSD Routes</span>
     <span class="flow-arrow">→</span>
-    <span class="flow-step" style="border-color:var(--accent);color:var(--accent)">Container Built</span>
+    <span class="flow-step" style="border-color:var(--blue);color:var(--blue)">Scope Container</span>
     <span class="flow-arrow">→</span>
-    <span class="flow-step" style="border-color:var(--blue);color:var(--blue)">Capacity Confirmed</span>
+    <span class="flow-step" style="border-color:var(--green);color:var(--green)">Capacity Confirmed</span>
     <span class="flow-arrow">→</span>
-    <span class="flow-step" style="border-color:var(--green);color:var(--green)">Sprint Entry</span>
+    <span class="flow-step" style="border-color:var(--accent);color:var(--accent)">Full Container Build</span>
     <span class="flow-arrow">→</span>
     <span class="flow-step" style="border-color:var(--blue);color:var(--blue)">Kanban: Brief Creation</span>
   </div>
@@ -679,11 +715,11 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
   <div class="card-grid">
     <div class="card" style="border-top:3px solid var(--green)">
       <h3>Lane 1 — Strategic</h3>
-      <p>Full Campaign Container with all 22 subtasks, dependencies, and milestone gates. PM builds container from the MSD-routed brief; Ops Lead uses the deliverable list to confirm capacity. Container multi-homes to Kanban at Sprint Entry.</p>
+      <p>PM scopes deliverables from the Strategy Brief (lightweight list — not a full Asana build). Ops confirms capacity. Then PM builds the full Campaign Container with all 24 subtasks, dependencies, and milestone gates. Container multi-homes to Kanban at Sprint Entry.</p>
     </div>
     <div class="card" style="border-top:3px solid var(--blue)">
       <h3>Lane 2 — Operational</h3>
-      <p>Lightweight Campaign Container. Skips Stages 3–4 (brief/direction already known). PM builds container before capacity check. Starts at Pre-Production or Production on Kanban.</p>
+      <p>PM scopes deliverables, Ops confirms capacity. Lightweight Campaign Container — skips Stages 3–4 (brief/direction already known). Starts at Pre-Production or Production on Kanban.</p>
     </div>
     <div class="card" style="border-top:3px solid var(--yellow)">
       <h3>Lane 3 — Rapid Support</h3>
@@ -753,12 +789,12 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
 <section class="section" id="automations" data-watermark="AUTOMATIONS">
   <div class="section-header">
     <div class="section-tag" style="color:var(--accent)">Automations</div>
-    <div class="section-title">16 Asana Rules</div>
+    <div class="section-title">17 Asana Rules</div>
     <p class="section-desc">Automate handoffs, notifications, and field updates so the team doesn't have to remember every step manually.</p>
   </div>
 
   <div class="tab-bar">
-    <button class="tab active" onclick="switchTab(this,'tab-auto-intake')">Intake Rules (7)</button>
+    <button class="tab active" onclick="switchTab(this,'tab-auto-intake')">Intake Rules (8)</button>
     <button class="tab" onclick="switchTab(this,'tab-auto-kanban')">Kanban Rules (9)</button>
   </div>
 
@@ -768,25 +804,26 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
       <tr><td>1</td><td>New task via intake form</td><td>Move to "Signal Received"; assign to pod PM by entity</td><td>Every request starts at Signal Received</td></tr>
       <tr><td>2</td><td>Task → "MSD Routing"</td><td>Assign to pod MSD; comment: "Route to lane + Strategy Brief if Strategic"</td><td>MSD knows what's expected</td></tr>
       <tr><td>3</td><td>Intake Lane = "Strategic"</td><td>Create subtask: "Strategy Brief" assigned to MSD; due +3 days</td><td>Auto-generated for Lane 1</td></tr>
-      <tr><td>4</td><td>Task → "Campaign Container Created"</td><td>Assign to PM; comment: "Build container from brief — define deliverables before capacity check"</td><td>Container must exist before Ops can confirm bandwidth</td></tr>
-      <tr><td>5</td><td>Task → "Capacity Confirmed"</td><td>Assign to Kaylin; comment: "Review container deliverables and confirm capacity"</td><td>Ops checks bandwidth against defined deliverables</td></tr>
-      <tr><td>6</td><td>Task → "Sprint Entry"</td><td>Comment: "Cleared for Kanban. Container multi-homes to Kanban Board."; notify PM</td><td>Handoff trigger</td></tr>
-      <tr><td>7</td><td>Task → "Declined"</td><td>Comment template: "Declined — Reason: [fill in]"; notify requester</td><td>No request disappears silently</td></tr>
+      <tr><td>4</td><td>Task → "Scope Container"</td><td>Assign to PM; comment: "List deliverables from brief — lightweight scope for capacity check"</td><td>Deliverable list informs capacity without full Asana build</td></tr>
+      <tr><td>5</td><td>Task → "Capacity Confirmed"</td><td>Assign to Kaylin; comment: "Review scope against bandwidth. Green/Yellow/Red."</td><td>Ops checks bandwidth against scoped deliverables</td></tr>
+      <tr><td>6</td><td>Task → "Full Container Build"</td><td>Assign to PM; comment: "Capacity confirmed — build full Campaign Container (24 subtasks + deps)"</td><td>Full Asana build only happens after capacity clears</td></tr>
+      <tr><td>7</td><td>Task → "Sprint Entry"</td><td>Comment: "Container multi-homes to Kanban Board."; notify PM</td><td>Handoff trigger</td></tr>
+      <tr><td>8</td><td>Task → "Declined"</td><td>Comment template: "Declined — Reason: [fill in]"; notify requester</td><td>No request disappears silently</td></tr>
     </table>
   </div>
 
   <div id="tab-auto-kanban" class="tab-panel">
     <table class="gap-table">
       <tr><th>#</th><th>Trigger</th><th>Action</th><th>Purpose</th></tr>
-      <tr><td>8</td><td>Container created in "Brief Creation"</td><td>Apply task template (22 subtasks + deps)</td><td>Full lifecycle pre-built in one click</td></tr>
-      <tr><td>9</td><td>All production subtasks complete</td><td>Gate 6.5 → "Pending Review"; notify PM</td><td>Gate triggers automatically</td></tr>
-      <tr><td>10</td><td>Gate 6.5 marked complete</td><td>Move to "Post-Production"; notify Videographer + Louis Marroquin</td><td>Post-prod team knows assets verified</td></tr>
-      <tr><td>11</td><td>Post-prod subtasks complete</td><td>Move to "Creative Review"; notify Shauntel Barron</td><td>Creative review starts immediately</td></tr>
-      <tr><td>12</td><td>Creative Review subtasks complete</td><td>Move to "Final Approval"; assign to MSD</td><td>MSD gets strategic sign-off prompt</td></tr>
-      <tr><td>13</td><td>Tier = "Full (120+)" + task enters Final Approval</td><td>Create subtask: "Exec Dir sign-off" assigned to Dexter; due +2 days</td><td>Tier 1 gets extra approval layer</td></tr>
-      <tr><td>14</td><td>Gate 9.5 complete</td><td>Move to "Channel Adaptation"; notify Caleb, Brittney, Krayton</td><td>All channel owners mobilized</td></tr>
-      <tr><td>15</td><td>Gate 10.5 complete</td><td>Move to "Distribution"; comment: "All channels confirmed."</td><td>Final green light</td></tr>
-      <tr><td>16</td><td>Distribution + launch date reached</td><td>Create subtask: "Performance Report" assigned to MSD; due +14 days</td><td>Measurement is baked in</td></tr>
+      <tr><td>9</td><td>Container created in "Brief Creation"</td><td>Apply task template (24 subtasks + deps)</td><td>Full lifecycle pre-built in one click</td></tr>
+      <tr><td>10</td><td>All production subtasks complete</td><td>Asset Delivery Confirmed → "Pending Review"; notify PM</td><td>Gate triggers automatically</td></tr>
+      <tr><td>11</td><td>Asset Delivery Confirmed marked complete</td><td>Move to "Post-Production"; notify Videographer + Louis Marroquin</td><td>Post-prod team knows assets accounted for</td></tr>
+      <tr><td>12</td><td>Post-prod subtasks complete</td><td>Move to "Creative Review"; notify Shauntel Barron</td><td>Creative review starts immediately</td></tr>
+      <tr><td>13</td><td>Creative Review subtasks complete</td><td>Move to "Final Approval"; assign to MSD</td><td>MSD gets strategic sign-off prompt</td></tr>
+      <tr><td>14</td><td>Tier = "Full (120+)" + task enters Final Approval</td><td>Create subtask: "Exec Dir sign-off" assigned to Dexter; due +2 days</td><td>Tier 1 gets extra approval layer</td></tr>
+      <tr><td>15</td><td>Gate 9.5 complete</td><td>Move to "Channel Adaptation"; notify Caleb, Brittney, Krayton</td><td>All channel owners mobilized</td></tr>
+      <tr><td>16</td><td>Gate 10.5 complete</td><td>Move to "Distribution"; comment: "All channels confirmed."</td><td>Final green light</td></tr>
+      <tr><td>17</td><td>Distribution + launch date reached</td><td>Create 3 subtasks: "48hr Paid Check" (MSD, +2d), "7-Day Read" (MSD, +7d), "30-Day Performance Report" (MSD, +30d)</td><td>Tiered measurement — not one-size-fits-all</td></tr>
     </table>
   </div>
 </section>
@@ -795,7 +832,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
 <section class="section section-light" id="dependencies" data-watermark="DEPENDENCIES">
   <div class="section-header">
     <div class="section-tag" style="color:var(--orange)">Dependencies</div>
-    <div class="section-title">25 Dependency Chains</div>
+    <div class="section-title">26 Dependency Chains</div>
     <p class="section-desc">Built into the Campaign Container template. When upstream completes, downstream unblocks automatically.</p>
   </div>
 
@@ -808,36 +845,37 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
     <table class="gap-table">
       <tr><th>#</th><th>Upstream (Blocks)</th><th>Downstream (Waiting On)</th><th>Rationale</th></tr>
       <tr><td>1</td><td>Signal Received (triage)</td><td>MSD Routing</td><td>PM triages before MSD routes</td></tr>
-      <tr><td>2</td><td>MSD Routing (lane assigned)</td><td>Campaign Container Created</td><td>Lane and brief drive the container build</td></tr>
-      <tr><td>3</td><td>Campaign Container Created</td><td>Capacity Confirmed</td><td>Ops needs deliverables to confirm bandwidth</td></tr>
-      <tr><td>4</td><td>Capacity Confirmed</td><td>Sprint Entry</td><td>Capacity check before sprint entry</td></tr>
-      <tr><td>5</td><td>Strategy Brief (subtask)</td><td>Strategy Pitchback</td><td>MSD completes brief before presenting strategy</td></tr>
+      <tr><td>2</td><td>MSD Routing (lane assigned)</td><td>Scope Container</td><td>PM scopes lightweight deliverable list from brief</td></tr>
+      <tr><td>3</td><td>Scope Container</td><td>Capacity Confirmed</td><td>Ops needs deliverables to confirm bandwidth</td></tr>
+      <tr><td>4</td><td>Capacity Confirmed</td><td>Full Container Build</td><td>PM builds full 24-subtask Asana container after capacity clears</td></tr>
+      <tr><td>5</td><td>Full Container Build</td><td>Sprint Entry</td><td>Container multi-homes to Kanban — production begins</td></tr>
+      <tr><td>6</td><td>Strategy Brief (subtask)</td><td>Strategy Pitchback</td><td>MSD completes brief before presenting strategy</td></tr>
     </table>
   </div>
 
   <div id="tab-dep-kanban" class="tab-panel">
     <table class="gap-table">
       <tr><th>#</th><th>Upstream</th><th>Downstream</th><th>Rationale</th></tr>
-      <tr><td>6</td><td>Sprint Entry (Intake)</td><td>Brief Creation (Kanban)</td><td>Cross-project link</td></tr>
-      <tr><td>7</td><td>MSD brief approval</td><td>Creative Direction</td><td>No creative without approved brief</td></tr>
-      <tr><td>8</td><td>CD direction lock</td><td>Pre-Production</td><td>Direction locked before logistics</td></tr>
-      <tr><td>9</td><td>Shoot list / scripts finalized</td><td>Production</td><td>Can't produce without deliverable list</td></tr>
-      <tr><td>10</td><td>Photo assets delivered</td><td>Gate 6.5</td><td>Parallel — photo must deliver</td></tr>
-      <tr><td>11</td><td>Video assets delivered</td><td>Gate 6.5</td><td>Parallel — video must deliver</td></tr>
-      <tr><td>12</td><td>Graphic assets delivered</td><td>Gate 6.5</td><td>Parallel — design must deliver</td></tr>
-      <tr><td>13</td><td>Copy delivered</td><td>Gate 6.5</td><td>Parallel — copy must deliver</td></tr>
-      <tr><td>14</td><td>Gate 6.5</td><td>Video/audio editing</td><td>Post-prod starts after verification</td></tr>
-      <tr><td>15</td><td>Gate 6.5</td><td>Copy proofing (Louis Marroquin)</td><td>Parallel with video editing</td></tr>
-      <tr><td>16</td><td>Video/audio editing</td><td>CD visual review (Shauntel Barron)</td><td>CD reviews final edited assets</td></tr>
-      <tr><td>17</td><td>Copy proofing</td><td>Copy alignment (Louis Marroquin)</td><td>Copyeditor reviews proofed copy</td></tr>
-      <tr><td>18</td><td>CD visual review</td><td>MSD sign-off</td><td>Both reviews must pass</td></tr>
-      <tr><td>19</td><td>Copy alignment</td><td>MSD sign-off</td><td>Both reviews must pass</td></tr>
-      <tr><td>20</td><td>MSD sign-off</td><td>Exec Dir sign-off (Tier 1)</td><td>Conditional chain</td></tr>
-      <tr><td>21</td><td>All approval subtasks</td><td>Gate 9.5</td><td>Distribution requires all approvals</td></tr>
-      <tr><td>22</td><td>Gate 9.5</td><td>Social formats (Caleb)</td><td>Parallel channel work</td></tr>
-      <tr><td>23</td><td>Gate 9.5</td><td>Email/web build (Krayton)</td><td>Parallel channel work</td></tr>
-      <tr><td>24</td><td>Gate 9.5</td><td>Paid media variants (Brittney)</td><td>Parallel channel work</td></tr>
-      <tr><td>25</td><td>All channel subtasks</td><td>Gate 10.5</td><td>Cross-channel readiness</td></tr>
+      <tr><td>7</td><td>Sprint Entry (Intake)</td><td>Brief Creation (Kanban)</td><td>Cross-project link</td></tr>
+      <tr><td>8</td><td>MSD brief approval</td><td>Creative Direction</td><td>No creative without approved brief</td></tr>
+      <tr><td>9</td><td>CD direction lock</td><td>Pre-Production</td><td>Direction locked before logistics</td></tr>
+      <tr><td>10</td><td>Shoot list / scripts finalized</td><td>Production</td><td>Can't produce without deliverable list</td></tr>
+      <tr><td>11</td><td>Photo assets delivered</td><td>Asset Delivery Confirmed</td><td>Parallel — photo must deliver</td></tr>
+      <tr><td>12</td><td>Video assets delivered</td><td>Asset Delivery Confirmed</td><td>Parallel — video must deliver</td></tr>
+      <tr><td>13</td><td>Graphic assets delivered</td><td>Asset Delivery Confirmed</td><td>Parallel — design must deliver</td></tr>
+      <tr><td>14</td><td>Copy delivered</td><td>Asset Delivery Confirmed</td><td>Parallel — copy must deliver</td></tr>
+      <tr><td>15</td><td>Asset Delivery Confirmed</td><td>Video/audio editing</td><td>Post-prod starts after verification</td></tr>
+      <tr><td>16</td><td>Asset Delivery Confirmed</td><td>Copy proofing (Louis Marroquin)</td><td>Parallel with video editing</td></tr>
+      <tr><td>17</td><td>Video/audio editing</td><td>CD visual review (Shauntel Barron)</td><td>CD reviews final edited assets</td></tr>
+      <tr><td>18</td><td>Copy proofing</td><td>Copy alignment (Louis Marroquin)</td><td>Copyeditor reviews proofed copy</td></tr>
+      <tr><td>19</td><td>CD visual review</td><td>MSD sign-off</td><td>Both reviews must pass</td></tr>
+      <tr><td>20</td><td>Copy alignment</td><td>MSD sign-off</td><td>Both reviews must pass</td></tr>
+      <tr><td>21</td><td>MSD sign-off</td><td>Exec Dir sign-off (Tier 1)</td><td>Conditional chain</td></tr>
+      <tr><td>22</td><td>All approval subtasks</td><td>Gate 9.5</td><td>Distribution requires all approvals</td></tr>
+      <tr><td>23</td><td>Gate 9.5</td><td>Social formats (Caleb)</td><td>Parallel channel work</td></tr>
+      <tr><td>24</td><td>Gate 9.5</td><td>Email/web build (Krayton)</td><td>Parallel channel work</td></tr>
+      <tr><td>25</td><td>Gate 9.5</td><td>Paid media variants (Brittney)</td><td>Parallel channel work</td></tr>
+      <tr><td>26</td><td>All channel subtasks</td><td>Gate 10.5</td><td>Cross-channel readiness</td></tr>
     </table>
   </div>
 </section>
@@ -875,14 +913,14 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
 <section class="section section-light" id="container" data-watermark="CONTAINER">
   <div class="section-header">
     <div class="section-tag" style="color:var(--accent)">Campaign Container Template</div>
-    <div class="section-title">22 Pre-Built Subtasks</div>
+    <div class="section-title">24 Pre-Built Subtasks</div>
     <p class="section-desc">PM selects the template when creating a Campaign Container. Dependencies are baked in — they don't need to be set manually each time.</p>
   </div>
 
   <div class="panel open" id="panelContainer">
     <div class="panel-header" onclick="togglePanel('panelContainer')">
       <h3><span style="width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block"></span> Full Subtask Template</h3>
-      <div style="display:flex;align-items:center;gap:12px"><span class="panel-count">22 subtasks</span><svg class="panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="panel-count">24 subtasks</span><svg class="panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
     </div>
     <div class="panel-body">
       <div style="padding:0 24px 24px">
@@ -897,9 +935,9 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
           <tr><td><strong>Video — shoot/capture</strong></td><td>6</td><td>Ronnie Holmes / Eryon Jefferson</td><td>5 days</td><td>Waiting on: Pre-production</td></tr>
           <tr><td><strong>Graphic — design</strong></td><td>6</td><td>Christopher Williams</td><td>5 days</td><td>Waiting on: Pre-production</td></tr>
           <tr><td><strong>Copy — draft</strong></td><td>6</td><td>Lauren Moses</td><td>3 days</td><td>Waiting on: Pre-production</td></tr>
-          <tr class="gate-row"><td><strong>⬥ Gate 6.5</strong></td><td>6.5</td><td>PM</td><td>1 day</td><td>Waiting on: Photo + Video + Graphic + Copy</td></tr>
-          <tr><td><strong>Post-prod (video/audio)</strong></td><td>7</td><td>Videographer</td><td>5 days</td><td>Waiting on: Gate 6.5</td></tr>
-          <tr><td><strong>Copy proofing</strong></td><td>7</td><td>Louis Marroquin</td><td>2 days</td><td>Waiting on: Gate 6.5 (parallel)</td></tr>
+          <tr class="gate-row"><td><strong>⬥ Asset Delivery Confirmed</strong></td><td>6.5</td><td>PM</td><td>1 day</td><td>Waiting on: Photo + Video + Graphic + Copy</td></tr>
+          <tr><td><strong>Post-prod (video/audio)</strong></td><td>7</td><td>Videographer</td><td>5 days</td><td>Waiting on: Asset Delivery Confirmed</td></tr>
+          <tr><td><strong>Copy proofing</strong></td><td>7</td><td>Louis Marroquin</td><td>2 days</td><td>Waiting on: Asset Delivery Confirmed (parallel)</td></tr>
           <tr><td><strong>CD visual review</strong></td><td>8</td><td>Shauntel Barron</td><td>2 days</td><td>Waiting on: Post-prod + Copy proof</td></tr>
           <tr><td><strong>Copy alignment review</strong></td><td>8</td><td>Louis Marroquin</td><td>1 day</td><td>Waiting on: Post-prod (parallel with CD)</td></tr>
           <tr><td><strong>MSD strategy sign-off</strong></td><td>9</td><td>MSD</td><td>2 days</td><td>Waiting on: BOTH review subtasks</td></tr>
@@ -910,7 +948,9 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
           <tr><td><strong>Paid media variants</strong></td><td>10</td><td>Brittney DeVine-Daugherty</td><td>2 days</td><td>Waiting on: Gate 9.5 (parallel)</td></tr>
           <tr class="gate-row"><td><strong>⬥ Gate 10.5</strong></td><td>10.5</td><td>PM</td><td>1 day</td><td>Waiting on: ALL channel subtasks</td></tr>
           <tr><td><strong>Distribution / publish</strong></td><td>11</td><td>Channel Owners</td><td>1 day</td><td>Waiting on: Gate 10.5</td></tr>
-          <tr><td><strong>Performance report</strong></td><td>12</td><td>MSD</td><td>14d post</td><td>Waiting on: Distribution (date-triggered)</td></tr>
+          <tr><td><strong>48hr Paid Check</strong></td><td>12</td><td>MSD</td><td>+2d</td><td>Waiting on: Distribution (date-triggered)</td></tr>
+          <tr><td><strong>7-Day Read</strong></td><td>12</td><td>MSD</td><td>+7d</td><td>Waiting on: Distribution (date-triggered)</td></tr>
+          <tr><td><strong>30-Day Performance Report</strong></td><td>12</td><td>MSD</td><td>+30d</td><td>Waiting on: Distribution (date-triggered)</td></tr>
         </table>
         <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)">
           <strong style="color:var(--text)">Total default timeline:</strong> ~45–50 business days for Full-tier. PM adjusts durations per Campaign Tier. Channel subtasks are conditional. Exec Dir sign-off only on Tier 1.
@@ -940,7 +980,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
     <tr><td><strong>Intake — Rapid Support</strong></td><td><code>[RS] Entity — Update — MM.DD</code></td><td>[RS] Woman Thou Art Loosed — Date Swap Flyer — 04.15</td></tr>
     <tr><td><strong>Kanban — Container</strong></td><td><code>[Entity] Campaign Name — Q# YYYY</code></td><td>[TPH Main] Mother's Day Campaign — Q2 2026</td></tr>
     <tr><td><strong>Kanban — Subtasks</strong></td><td><code>Stage #: Deliverable Name</code></td><td>S6: Hero graphic — Instagram carousel</td></tr>
-    <tr><td><strong>Kanban — Gates</strong></td><td><code>⬥ Gate #: Verification</code></td><td>⬥ Gate 6.5: All production assets verified</td></tr>
+    <tr><td><strong>Kanban — Gates</strong></td><td><code>⬥ Gate #: Verification</code></td><td>⬥ Asset Delivery Confirmed: All production assets verified</td></tr>
   </table>
 
   <div style="margin-top:20px;font-size:13px;color:var(--muted);line-height:1.7">
@@ -998,8 +1038,8 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
 
   <div class="panel open" id="panelMilestones">
     <div class="panel-header" onclick="togglePanel('panelMilestones')">
-      <h3><span style="width:10px;height:10px;border-radius:50%;background:var(--orange);display:inline-block"></span> 7 Milestone Markers</h3>
-      <div style="display:flex;align-items:center;gap:12px"><span class="panel-count">7 milestones</span><svg class="panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+      <h3><span style="width:10px;height:10px;border-radius:50%;background:var(--orange);display:inline-block"></span> 9 Milestone Markers</h3>
+      <div style="display:flex;align-items:center;gap:12px"><span class="panel-count">9 milestones</span><svg class="panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
     </div>
     <div class="panel-body">
       <div style="padding:0 24px 24px">
@@ -1007,11 +1047,13 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
           <tr><th>Milestone</th><th>Placement</th><th>Date Logic</th><th>Timeline Signal</th></tr>
           <tr><td><strong>⬥ Brief Approved</strong></td><td>End of Stage 3</td><td>= Brief approval subtask due</td><td>Strategy-to-production handoff. If this slips, everything shifts.</td></tr>
           <tr><td><strong>⬥ Creative Direction Locked</strong></td><td>End of Stage 4</td><td>= Direction subtask due</td><td>Visual/narrative finalized. Production can begin.</td></tr>
-          <tr><td><strong>⬥ Gate 6.5 — Production Complete</strong></td><td>After Stage 6</td><td>= Gate 6.5 subtask due</td><td>All raw assets delivered. First hard gate.</td></tr>
+          <tr><td><strong>⬥ Asset Delivery Confirmed</strong></td><td>After Stage 6</td><td>= Asset Delivery subtask due</td><td>All raw assets delivered. First hard gate.</td></tr>
           <tr><td><strong>⬥ Gate 9.5 — Approved for Distribution</strong></td><td>After Stage 9</td><td>= Gate 9.5 subtask due</td><td>Creative review passed. Channel teams can start. Second hard gate.</td></tr>
           <tr><td><strong>⬥ Gate 10.5 — Launch Ready</strong></td><td>After Stage 10</td><td>= Gate 10.5 subtask due</td><td>All channels QA'd. Last checkpoint before go-live.</td></tr>
           <tr><td><strong>⬥ Campaign Live</strong></td><td>Stage 11</td><td>= Launch / event date</td><td>The date that matters most. Everything works backward from here.</td></tr>
-          <tr><td><strong>⬥ Performance Report Due</strong></td><td>Stage 12</td><td>= Launch + 14 days</td><td>Closes the loop. If consistently late, measurement isn't happening.</td></tr>
+          <tr><td><strong>⬥ 48hr Paid Check</strong></td><td>Stage 12</td><td>= Launch + 2 days</td><td>Paid media early read — catch underperformance before budget burns.</td></tr>
+          <tr><td><strong>⬥ 7-Day Read</strong></td><td>Stage 12</td><td>= Launch + 7 days</td><td>Initial organic + paid performance snapshot.</td></tr>
+          <tr><td><strong>⬥ 30-Day Performance Report</strong></td><td>Stage 12</td><td>= Launch + 30 days</td><td>Full campaign report. Closes the loop.</td></tr>
         </table>
       </div>
     </div>
@@ -1023,7 +1065,80 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
   </div>
 </section>
 
-<!-- ==================== 14. DISCUSSION QUESTIONS ==================== -->
+<!-- ==================== 14. FLAGGED RISKS ==================== -->
+<section class="section" id="risks" data-watermark="RISKS">
+  <div class="section-header">
+    <div class="section-tag" style="color:var(--yellow)">Flagged Risks</div>
+    <div class="section-title">Known Bottlenecks</div>
+    <p class="section-desc">These aren't blockers — they're pressure points that need active mitigation.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card" style="border-left:3px solid var(--yellow)">
+      <h3><span class="badge badge-yellow">Risk</span> Creative Review Bottleneck</h3>
+      <p>Shauntel Barron (Interim Creative Director) is the sole gatekeeper for Stage 8 creative review across all campaigns. Every visual asset flows through one person. If she's on PTO, sick, or overloaded — the entire pipeline backs up at Stage 8.</p>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">
+        <strong style="color:var(--text)">Mitigation:</strong> Sr. Graphic Designer hire (open position) would handle first-pass reviews, reducing Shauntel's load to final sign-off only. Christopher Williams was discussed for promotion to this role — <span style="color:var(--yellow)">still pending leadership decision</span>.
+      </div>
+    </div>
+    <div class="card" style="border-left:3px solid var(--yellow)">
+      <h3><span class="badge badge-yellow">Risk</span> Copy Proofing Single Point</h3>
+      <p>Louis Marroquin (Sr. Copyeditor) is the only copy reviewer at Stage 7 and Stage 8. Copy proofing and copy alignment both funnel through one person.</p>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">
+        <strong style="color:var(--text)">Mitigation:</strong> Manageable at current volume. Monitor as campaign count scales — may need freelance copyeditor support if queue exceeds 48hr turnaround.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 15. SLA TARGETS ==================== -->
+<section class="section section-light" id="sla" data-watermark="SLA">
+  <div class="section-header">
+    <div class="section-tag" style="color:var(--blue)">Service Level Targets</div>
+    <div class="section-title">SLA by Campaign Tier</div>
+    <p class="section-desc">Ideal turnaround windows from intake to distribution, based on RACI tier classifications. These are targets — not hard caps. Capacity check may adjust timelines.</p>
+  </div>
+
+  <table class="gap-table" style="max-width:1000px;margin:0 auto">
+    <tr><th>Tier</th><th>Days (Intake → Distribution)</th><th>Stage Coverage</th><th>Escalation Threshold</th></tr>
+    <tr><td><strong>Full Campaign (120+ hrs)</strong></td><td>45–60 business days</td><td>All 12 stages + 3 gates</td><td>If any stage exceeds 2× estimated duration</td></tr>
+    <tr><td><strong>Moderate (60–90 hrs)</strong></td><td>25–35 business days</td><td>~10 stages (may skip 3–4)</td><td>If any stage exceeds 1.5× estimated duration</td></tr>
+    <tr><td><strong>Compressed (30–59 hrs)</strong></td><td>15–20 business days</td><td>~8 stages (brief/direction condensed)</td><td>If total timeline exceeds 25 days</td></tr>
+    <tr><td><strong>Under 30 hrs</strong></td><td>7–12 business days</td><td>~6 stages (pre-prod → distribute)</td><td>If blocked more than 48 hrs at any stage</td></tr>
+    <tr><td><strong>Rapid Support</strong></td><td>1–3 business days (24–72 hrs)</td><td>~5 stages (intake → produce → review → distribute)</td><td>If not distributed within 72 hrs of intake</td></tr>
+  </table>
+
+  <div class="callout" style="border-left:4px solid var(--blue)">
+    <div class="callout-tag" style="color:var(--blue)">How to Use These</div>
+    <p>SLAs inform the capacity check, not the other way around. When Ops flags Yellow, the MSD decides whether to extend the timeline or reduce scope — the SLA tells them how far off-target they are. Track actual vs. target in the 30-Day Performance Report to calibrate over time.</p>
+  </div>
+</section>
+
+<!-- ==================== 16. PHASE 2 ROADMAP ==================== -->
+<section class="section" id="phase2" data-watermark="PHASE 2">
+  <div class="section-header">
+    <div class="section-tag" style="color:var(--accent)">Coming in Phase 2</div>
+    <div class="section-title">Scoped for Next Sprint</div>
+    <p class="section-desc">Decisions that need more definition before building. Tracked — not forgotten.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card" style="border-left:3px solid var(--accent)">
+      <h3><span class="badge badge-orange">Phase 2</span> Sunday / Recurring Content Workflow</h3>
+      <p>Weekly sermon graphics, recurring social posts, and Sunday-specific content don't fit the campaign lifecycle. They need a reactive, template-driven workflow — possibly a separate Kanban view or a recurring task structure. Dexter flagged this as a priority: "We need a strategy for recurring content that isn't trying to force it through 12 stages."</p>
+    </div>
+    <div class="card" style="border-left:3px solid var(--accent)">
+      <h3><span class="badge badge-orange">Phase 2</span> Capacity Dashboard</h3>
+      <p>Portfolio-level view showing total hours committed per pod, per week. Currently Ops does this manually. Phase 2 builds a calculated Asana view or external dashboard that auto-aggregates from the Hour Estimate custom field.</p>
+    </div>
+    <div class="card" style="border-left:3px solid var(--accent)">
+      <h3><span class="badge badge-orange">Phase 2</span> Feedback Loop Mechanism</h3>
+      <p>Post-campaign learnings currently live in the 30-Day Report but don't route back into process improvements. Phase 2 formalizes how measurement insights feed into future Strategy Briefs and creative direction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 17. DISCUSSION QUESTIONS ==================== -->
 <section class="section section-light" id="discuss" data-watermark="DISCUSS">
   <div class="section-header">
     <div class="section-tag" style="color:var(--green)">3/26 Meeting Decisions</div>
@@ -1041,12 +1156,12 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
       <p>One Kanban project, three filtered tabs: Production Pipeline, Review & Approval, Distribution & Measurement. Stages tagged, not columned.</p>
     </div>
     <div class="card" style="border-left:3px solid var(--green)">
-      <h3><span style="color:var(--green)">✓</span> Campaign Container Moves Earlier</h3>
-      <p>Container built before capacity check — Ops Lead needs deliverables to confirm bandwidth. Brief drives the container; container drives the capacity check.</p>
+      <h3><span style="color:var(--green)">✓</span> Two-Step Container Build</h3>
+      <p>Lightweight Scope Container (deliverable list from brief) before capacity check. Full 24-subtask Asana build only after capacity clears. No throwaway work if bandwidth is tight.</p>
     </div>
     <div class="card" style="border-left:3px solid var(--green)">
       <h3><span style="color:var(--green)">✓</span> Gate Enforcement = Hybrid</h3>
-      <p>Asana rules handle automation. PMs verify gates in real-time — not a weekly batch. Creative review bottleneck acknowledged; Sr. Graphic Designer to handle more first-pass reviews.</p>
+      <p>Asana rules handle automation. PMs verify gates in real-time — not a weekly batch. Gate 6.5 renamed to "Asset Delivery Confirmed" for clarity on what's actually being verified.</p>
     </div>
     <div class="card" style="border-left:3px solid var(--green)">
       <h3><span style="color:var(--green)">✓</span> Migrate, Don't Grandfather</h3>
@@ -1061,7 +1176,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
 
 <div style="max-width:1200px;margin:0 auto;padding:0 32px 80px">
   <div style="border-top:1px solid var(--border);padding-top:32px;text-align:center;font-size:12px;color:var(--dim)">
-    TPH Marketing Operations &nbsp;·&nbsp; Asana Workflow Adjustment Plan &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Updated 3/26 — Decisions Captured
+    TPH Marketing Operations &nbsp;·&nbsp; Asana Workflow Adjustment Plan &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Updated 3/26 — Audit Addressed + SLAs + Phase 2 Scoped
   </div>
 </div>
 
@@ -1074,15 +1189,15 @@ const stages=[
   {t:"Stage 4 — Creative Direction",p:"KANBAN BOARD → Creative Direction column",d:"Creative Director (Shauntel Barron) locks the visual and narrative direction. Moodboards, color direction, typography, and tone are finalized before any production begins."},
   {t:"Stage 5 — Pre-Production",p:"KANBAN BOARD → Pre-Production column",d:"PM coordinates logistics: shoot lists, scripts, vendor confirmations, talent scheduling, and location scouting. Everything needed for production to execute without friction."},
   {t:"Stage 6 — Production",p:"KANBAN BOARD → Production column",d:"Parallel execution: Photo (Elijah Smith), Video (Ronnie Holmes / Eryon Jefferson), Graphic Design (Christopher Williams), and Copy (Lauren Moses) all produce simultaneously."},
-  {t:"⬥ Gate 6.5 — Production Verified",p:"QUALITY GATE",d:"PM verifies all raw assets are delivered and accounted for before post-production begins. This prevents the common failure of post-production starting with incomplete assets."},
-  {t:"Stage 7 — Post-Production",p:"KANBAN BOARD → Post-Production column",d:"Two parallel tracks: Video/audio editing (Videographer) and copy proofing (Louis Marroquin, Sr. Copyeditor). Both start simultaneously after Gate 6.5 clears."},
+  {t:"⬥ Asset Delivery Confirmed",p:"QUALITY GATE",d:"PM verifies all raw assets are delivered and accounted for before post-production begins. This prevents the common failure of post-production starting with incomplete assets."},
+  {t:"Stage 7 — Post-Production",p:"KANBAN BOARD → Post-Production column",d:"Two parallel tracks: Video/audio editing (Videographer) and copy proofing (Louis Marroquin, Sr. Copyeditor). Both start simultaneously after Asset Delivery clears."},
   {t:"Stage 8 — Creative Review",p:"KANBAN BOARD → Creative Review column",d:"Creative Director reviews visual quality. Sr. Copyeditor reviews copy alignment. Both must sign off before the campaign advances to final approval."},
   {t:"Stage 9 — Final Approval",p:"KANBAN BOARD → Final Approval column",d:"MSD gives strategic sign-off confirming the output matches the brief intent. For Tier 1 (Full) campaigns, Exec Dir (Dexter) also reviews and approves."},
   {t:"⬥ Gate 9.5 — Distribution Readiness",p:"QUALITY GATE",d:"PM confirms all approvals are complete and the campaign is ready for channel adaptation. This is the second hard gate — nothing reaches the audience without clearing it."},
   {t:"Stage 10 — Channel Adaptation",p:"KANBAN BOARD → Channel Adaptation column",d:"Parallel execution: Social formatting (Caleb Biggurs), email/web build (Krayton Garlon), and paid media variants (Brittney DeVine-Daugherty) all adapt simultaneously."},
   {t:"⬥ Gate 10.5 — Cross-Channel Ready",p:"QUALITY GATE",d:"PM verifies all channel-specific variants are built and QA'd. The last checkpoint before the world sees it."},
   {t:"Stage 11 — Distribution",p:"KANBAN BOARD → Distribution column",d:"Content published across all designated channels simultaneously. The launch date — the date everything works backward from."},
-  {t:"Stage 12 — Performance",p:"KANBAN BOARD → Performance column",d:"MSD delivers performance report 14 days after launch. Closes the loop. If this is consistently late, measurement isn't happening."}
+  {t:"Stage 12 — Performance",p:"KANBAN BOARD → Performance column",d:"Tiered measurement: 48hr Paid Check (MSD), 7-Day Initial Read (MSD), 30-Day Full Performance Report (MSD). Closes the loop with data at three intervals — not just one post-mortem."}
 ];
 
 function showStage(el,i){
