@@ -397,7 +397,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
   <h1>Asana Workflow<br><em>Adjustment Plan</em></h1>
   <p class="hero-sub">Restructuring Marketing Project Intake and Marketing Team Kanban Board to implement the 12-stage RACI production workflow — with automations, dependencies, naming conventions, saved views, and milestone gates.</p>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="num">13</div><div class="label">Sections</div></div>
+    <div class="hero-stat"><div class="num">3</div><div class="label">Board Views</div></div>
     <div class="hero-stat"><div class="num">15</div><div class="label">Automations</div></div>
     <div class="hero-stat"><div class="num">24</div><div class="label">Dependencies</div></div>
     <div class="hero-stat"><div class="num">7</div><div class="label">Milestones</div></div>
@@ -542,7 +542,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
   <div class="panel open" id="panelLanes">
     <div class="panel-header" onclick="togglePanel('panelLanes')">
       <h3><span style="width:10px;height:10px;border-radius:50%;background:var(--green);display:inline-block"></span> New Section Architecture</h3>
-      <div style="display:flex;align-items:center;gap:12px"><span class="panel-count">9 sections</span><svg class="panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+      <div style="display:flex;align-items:center;gap:12px"><span class="panel-count">10 sections</span><svg class="panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
     </div>
     <div class="panel-body">
       <div style="padding:0 24px 24px">
@@ -553,8 +553,9 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
           <tr><td><strong>Lane 3 — Rapid Support</strong></td><td>1</td><td>Same-week needs: date swaps, copy corrections. 24–72hr turnaround.</td><td>PM</td></tr>
           <tr class="gate-row"><td><strong>Signal Received</strong></td><td>1→2</td><td>Intake form submissions land here first</td><td>PM (triage)</td></tr>
           <tr class="gate-row"><td><strong>MSD Routing</strong></td><td>2</td><td>MSD assigns lane, completes Discovery Worksheet (Lane 1)</td><td>MSD</td></tr>
-          <tr class="gate-row"><td><strong>Capacity Confirmed</strong></td><td>2</td><td>Ops Lead verifies bandwidth, assigns pod, confirms sprint slot</td><td>Ops Lead (Kaylin)</td></tr>
-          <tr class="gate-row"><td><strong>Sprint Entry — Ready for Kanban</strong></td><td>2→3</td><td>Cleared for production. PM creates Campaign Container.</td><td>PM</td></tr>
+          <tr class="gate-row"><td><strong>Campaign Container Created</strong></td><td>2</td><td>PM builds container from brief — defines deliverables before capacity check</td><td>PM</td></tr>
+          <tr class="gate-row"><td><strong>Capacity Confirmed</strong></td><td>2</td><td>Ops Lead verifies bandwidth using container deliverables, assigns pod</td><td>Ops Lead (Kaylin)</td></tr>
+          <tr class="gate-row"><td><strong>Sprint Entry — Ready for Kanban</strong></td><td>2→3</td><td>Cleared for production. Container moves to Kanban Board.</td><td>PM</td></tr>
           <tr><td><strong>On Hold</strong></td><td>—</td><td>Paused requests awaiting information or capacity</td><td>PM</td></tr>
           <tr><td><strong>Declined</strong></td><td>—</td><td>Requests that don't meet governance rules. Logged with reason.</td><td>MSD</td></tr>
         </table>
@@ -569,11 +570,13 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
       <span class="flow-arrow">→</span>
       <span class="flow-step" style="border-color:var(--green)">MSD Routes</span>
       <span class="flow-arrow">→</span>
+      <span class="flow-step" style="border-color:var(--blue)">Container Built</span>
+      <span class="flow-arrow">→</span>
       <span class="flow-step" style="border-color:var(--green)">Capacity Confirmed</span>
       <span class="flow-arrow">→</span>
       <span class="flow-step" style="border-color:var(--accent);color:var(--accent)">Sprint Entry</span>
     </div>
-    <p style="margin-top:12px">Every request passes through all four steps. No exceptions. This is the enforcement mechanism for the 5 Intake Governance Rules.</p>
+    <p style="margin-top:12px">Every request passes through all five steps. No exceptions. Campaign Container must exist before capacity check — you can't confirm bandwidth without knowing the deliverables.</p>
   </div>
 
   <div class="panel" id="panelGov">
@@ -598,14 +601,14 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
   <div class="section-header">
     <div class="section-tag" style="color:var(--blue)">Recommended Restructure</div>
     <div class="section-title">Marketing Team Kanban Board</div>
-    <p class="section-desc">Replaces "To Do / In Progress / Approved/Done" with sections mapping to RACI Stages 3–12 plus quality gates.</p>
+    <p class="section-desc">One project, three board views. The 12-stage lifecycle maps to filtered tabs — not 13 flat columns. Each view shows what matters for that phase.</p>
   </div>
 
-  <!-- Bento Grid: 13-Column Architecture -->
+  <!-- Bento Grid: 3 Board Views -->
   <div class="bento-grid">
-    <!-- Row 1: Production Pipeline -->
+    <!-- View 1: Production Pipeline -->
     <div class="bento-card bento-wide" style="border-top:3px solid var(--blue)">
-      <div class="bento-label" style="color:var(--blue)">Production Pipeline</div>
+      <div class="bento-label" style="color:var(--blue)">View 1 — Production Pipeline</div>
       <div class="bento-stage-flow">
         <div class="bento-stage"><span class="bento-num">3</span><strong>Brief Creation</strong><span class="bento-meta">MSD approves brief</span></div>
         <div class="bento-arrow">→</div>
@@ -619,9 +622,9 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
       </div>
     </div>
 
-    <!-- Row 2: Review & Approval + Distribution -->
+    <!-- View 2: Review & Approval -->
     <div class="bento-card" style="border-top:3px solid var(--purple)">
-      <div class="bento-label" style="color:var(--purple)">Review & Approval</div>
+      <div class="bento-label" style="color:var(--purple)">View 2 — Review & Approval</div>
       <div class="bento-stack">
         <div class="bento-item"><span class="bento-num-sm">7</span><div><strong>Post-Production</strong><span class="bento-meta">Edited assets + proofed copy</span></div></div>
         <div class="bento-item"><span class="bento-num-sm">8</span><div><strong>Creative Review</strong><span class="bento-meta">CD + Sr. Copyeditor sign off</span></div></div>
@@ -631,7 +634,7 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
     </div>
 
     <div class="bento-card" style="border-top:3px solid var(--green)">
-      <div class="bento-label" style="color:var(--green)">Distribution & Measurement</div>
+      <div class="bento-label" style="color:var(--green)">View 3 — Distribution & Measurement</div>
       <div class="bento-stack">
         <div class="bento-item"><span class="bento-num-sm">10</span><div><strong>Channel Adaptation</strong><span class="bento-meta">All channel variants built + QA'd</span></div></div>
         <div class="bento-item bento-gate-item"><span class="bento-num-sm">⬥</span><div><strong>Gate 10.5</strong><span class="bento-meta">Cross-Channel Ready</span></div></div>
@@ -1008,42 +1011,42 @@ code{background:var(--surface);padding:2px 6px;border-radius:4px;font-size:12px;
 <!-- ==================== 14. DISCUSSION QUESTIONS ==================== -->
 <section class="section section-light" id="discuss" data-watermark="DISCUSS">
   <div class="section-header">
-    <div class="section-tag" style="color:var(--yellow)">Meeting Discussion Points</div>
-    <div class="section-title">Questions to Resolve</div>
-    <p class="section-desc">These need decisions before building. Bring to the meeting.</p>
+    <div class="section-tag" style="color:var(--green)">3/26 Meeting Decisions</div>
+    <div class="section-title">Resolved</div>
+    <p class="section-desc">Decisions captured from the 3/26 ops meeting with Kaylin, Eric, and Cheyenne.</p>
   </div>
 
   <div class="card-grid">
-    <div class="card" style="border-left:3px solid var(--yellow)">
-      <h3>Multi-homing vs. Separate Tasks</h3>
-      <p>Multi-home (single source of truth, but cluttered) or linked Campaign Container (cleaner, but requires link discipline)?</p>
+    <div class="card" style="border-left:3px solid var(--green)">
+      <h3><span style="color:var(--green)">✓</span> Multi-homing Confirmed</h3>
+      <p>Single source of truth. Multi-home tasks across projects. Use saved views to manage clutter.</p>
     </div>
-    <div class="card" style="border-left:3px solid var(--yellow)">
-      <h3>Kanban Granularity</h3>
-      <p>13 columns may overwhelm board view. Group stages (e.g., "Post-Prod + Creative Review") and use subtasks for granularity?</p>
+    <div class="card" style="border-left:3px solid var(--green)">
+      <h3><span style="color:var(--green)">✓</span> 3 Board Views, Not 13 Columns</h3>
+      <p>One Kanban project, three filtered tabs: Production Pipeline, Review & Approval, Distribution & Measurement. Stages tagged, not columned.</p>
     </div>
-    <div class="card" style="border-left:3px solid var(--yellow)">
-      <h3>Rapid Support Flow</h3>
-      <p>Does Lane 3 skip Kanban entirely and stay in Intake? Or get a lightweight path (Creative → Review → Done)?</p>
+    <div class="card" style="border-left:3px solid var(--green)">
+      <h3><span style="color:var(--green)">✓</span> Campaign Container Moves Earlier</h3>
+      <p>Container built before capacity check — Ops Lead needs deliverables to confirm bandwidth. Brief drives the container; container drives the capacity check.</p>
     </div>
-    <div class="card" style="border-left:3px solid var(--yellow)">
-      <h3>Gate Enforcement</h3>
-      <p>Asana rules, manual PM enforcement, or combination? Who reviews each gate — PM, Creative Dir, or Ops Lead?</p>
+    <div class="card" style="border-left:3px solid var(--green)">
+      <h3><span style="color:var(--green)">✓</span> Gate Enforcement = Hybrid</h3>
+      <p>Asana rules handle automation. PMs verify gates in real-time — not a weekly batch. Creative review bottleneck acknowledged; Sr. Graphic Designer to handle more first-pass reviews.</p>
     </div>
-    <div class="card" style="border-left:3px solid var(--yellow)">
-      <h3>Existing Work Migration</h3>
-      <p>Migrate in-flight tasks to new structure or grandfather them and start fresh for new intake?</p>
+    <div class="card" style="border-left:3px solid var(--green)">
+      <h3><span style="color:var(--green)">✓</span> Migrate, Don't Grandfather</h3>
+      <p>Existing work moves to the new structure. "Rip the band-aid off." Grandfathering would compound the same problems across future sprints.</p>
     </div>
-    <div class="card" style="border-left:3px solid var(--yellow)">
-      <h3>Reporting & Dashboards</h3>
-      <p>Who owns dashboard setup — Ops Lead? What views does leadership need beyond the 12 saved views?</p>
+    <div class="card" style="border-left:3px solid var(--green)">
+      <h3><span style="color:var(--green)">✓</span> Capacity = Check, Not Planning</h3>
+      <p>Kaylin's role is guiding capacity constraints to MSDs before strategy — not making deliverable-level decisions. MSDs strategize within the framework of confirmed capacity.</p>
     </div>
   </div>
 </section>
 
 <div style="max-width:1200px;margin:0 auto;padding:0 32px 80px">
   <div style="border-top:1px solid var(--border);padding-top:32px;text-align:center;font-size:12px;color:var(--dim)">
-    TPH Marketing Operations &nbsp;·&nbsp; Asana Workflow Adjustment Plan &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Draft for Discussion
+    TPH Marketing Operations &nbsp;·&nbsp; Asana Workflow Adjustment Plan &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Updated 3/26 — Decisions Captured
   </div>
 </div>
 
