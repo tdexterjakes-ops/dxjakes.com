@@ -167,7 +167,7 @@
     hwrap.style.display='none'; banner.style.display='none';
     endBox.style.display='flex';
     endScore.textContent='final score — '+score;
-    endText.textContent=didWin?'I always believed in you.':'Go home, Rodger!';
+    endText.textContent=didWin?'You stayed. That was the whole test.':'The room doesn\u2019t wait. Neither should you.';
   }
 
   function loop() {

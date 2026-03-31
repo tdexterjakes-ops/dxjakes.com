@@ -67,6 +67,15 @@
   line-height: 1;
   font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Courier New', monospace;
 }
+.author-mark {
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.16);
+  font-family: system-ui, -apple-system, sans-serif;
+}
 
 /* ── ENTER LINK (centered) ── */
 .enter-link {
