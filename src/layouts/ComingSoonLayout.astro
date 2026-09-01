@@ -29,6 +29,10 @@ const publishDateLong = new Date(dateOnly + 'T00:00:00Z').toLocaleDateString('en
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
+  <!-- theme-color: media-split so browser chrome tracks the OS pre-JS;
+       mode.js collapses these to one meta matching the resolved mode. -->
+  <meta name="theme-color" content="#f4f4f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060606" media="(prefers-color-scheme: dark)">
   <meta name="robots" content="noindex">
 
   <title>{pageTitle}</title>
