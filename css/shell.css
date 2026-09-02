@@ -235,6 +235,12 @@ main {
 
 /* ── Focus states (chrome elements) ────────────────────────── */
 
+/* The skip link belongs in this chrome list. It was the one control in the
+   frame without a :focus-visible rule, so it fell back to the UA default ring
+   (Chrome: 1px auto #99c8ff) on every route while its siblings painted
+   --focus-ring at --focus-ring-width. Visible, but not the system's ring — and
+   it is the FIRST thing a keyboard user ever focuses. [F98] */
+.skip-link:focus-visible,
 .mode-toggle:focus-visible,
 .brand-block:focus-visible,
 .footer-strip a:focus-visible {
