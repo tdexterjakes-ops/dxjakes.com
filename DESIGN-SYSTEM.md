@@ -1130,6 +1130,17 @@ Rules: Posts to `/api/subscribe` (Netlify Function → Mailchimp). The `.email-s
 
 All interactive elements use `outline: var(--focus-ring-width) solid var(--focus-ring)` on `:focus-visible`. Width is tokenized (`--focus-ring-width: 2px`); offset stays local per selector (`2px` on chrome elements, `-5px`/`-4px` inset on content frames — see §4 Focus Rings). `--focus-ring` is `#c00` in both modes (unified in Phase 4.1) — non-text contrast only requires 3:1 and `#c00`/`#060606` clears 3.45:1.
 
+**"All" means all, including the skip link.** A control with no `:focus-visible` rule does not
+lose its focus indicator — it silently inherits the UA default (Chrome paints `1px auto #99c8ff`),
+which passes WCAG 2.4.7 and therefore never shows up as a contrast or a11y failure. It only reads
+as a system break: one pale-blue hairline among 2px `#c00` rings. `.skip-link` sat that way on
+every route until F98, which is the worst place for it — the skip link is the first element a
+keyboard user ever focuses, so the default ring was the site's opening impression of its own
+focus treatment. It now rides the shared chrome block in `shell.css` alongside `.mode-toggle`,
+`.brand-block` and `.footer-strip a`. **Auditing for this needs a rule-existence check, not a
+contrast check** — walk the loaded cascade for a `:focus-visible` selector per interactive class
+rather than measuring what the ring looks like.
+
 ### Touch Targets
 
 All buttons and interactive elements have `min-height: 44px` for WCAG compliance.
@@ -1279,13 +1290,32 @@ of the immutable cache so cross-origin preloads never get blocked.
 reader keeps the year-cached copy and never receives the fix — while it looks correct in every
 local test. Two rules:
 
-1. **Bump every reference together.** A sheet is usually linked from more than one layout —
-   `article.css` appears in `ArticleLayout.astro`, `ComingSoonLayout.astro` and `about.astro`.
-   Miss one and that route serves a stale sheet against fresh markup.
+1. **Bump every reference together — and the references are not all in `src/`.** The two
+   passthrough pages, `brand/index.html` and `phase0/index.html`, link the shared sheets with
+   their own hand-written `?v=`, so a sheet's reference count is the `src/` count plus however
+   many passthroughs load it. `article.css` has **four** references: `ArticleLayout.astro`,
+   `ComingSoonLayout.astro`, `about.astro` and `brand/index.html`. `shell.css` has **seven** —
+   five in `src/` plus both passthroughs. Miss one and that route serves a stale sheet against
+   fresh markup, for up to a year.
 2. **Jump to the current phase, don't increment.** When `shell.css` changed in `79df261` it went
-   `phase23 → phase36` across all five of its references at once. `article.css` went
-   `phase24 → phase37` across its three references in `558aa07` (merged to main as `f8d7702`). Take the highest phase in use anywhere and go one past it;
-   `grep -rhoE 'phase[0-9]+' src/ | grep -oE '[0-9]+' | sort -n | tail -1` gives the high-water mark.
+   `phase23 → phase36`. `article.css` went `phase24 → phase37` in `558aa07` (merged to main as
+   `f8d7702`). Take the highest phase in use anywhere and go one past it — as `shell.css` did
+   going `phase36 → phase38` in the F98 fix, stepping over `article.css`'s phase37.
+
+**Scan the whole repo, not just `src/`.** This is exactly how `/brand/` got left on
+`article.css?v=phase24` for two days after `558aa07` moved the other three references to
+phase37 — a `src/`-only sweep cannot see the passthroughs [F99]:
+
+```
+grep -rn --exclude-dir=node_modules --exclude-dir=dist -oE '/css/[a-z0-9-]+\.css\?v=[a-z0-9]+' . | sort
+```
+
+Every sheet should show exactly one `?v=` across all of its references; two distinct values for
+one filename is the drift. For the high-water mark:
+
+```
+grep -rh --exclude-dir=node_modules --exclude-dir=dist -oE '\?v=phase[0-9]+' . | grep -oE '[0-9]+' | sort -n | tail -1
+```
 
 ---
 
