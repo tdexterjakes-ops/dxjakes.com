@@ -1307,8 +1307,12 @@ local test. Two rules:
 phase37 — a `src/`-only sweep cannot see the passthroughs [F99]:
 
 ```
-grep -rn --exclude-dir=node_modules --exclude-dir=dist -oE '/css/[a-z0-9-]+\.css\?v=[a-z0-9]+' . | sort
+grep -rn --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=audit \
+  -oE '/css/[a-z0-9-]+\.css\?v=[a-z0-9]+' . | sort
 ```
+
+(`audit/` is excluded because the feature ledger quotes these paths as prose and would otherwise
+report a phantom eighth `tokens.css` reference.)
 
 Every sheet should show exactly one `?v=` across all of its references; two distinct values for
 one filename is the drift. For the high-water mark:
