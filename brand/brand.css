@@ -802,10 +802,18 @@ html.dark-mode .demo-ghost-title {
 
 .demo-plate:hover { border-color: var(--accent); }
 
+/* Mirrors production .plate-body (css/plates.css) — the flex column is load-
+   bearing, not cosmetic: .demo-plate.img-plate .demo-plate-body below sets
+   justify-content: flex-end to drop the title into the dark end of the ::after
+   gradient, exactly as .plate-image .plate-body does. Without display:flex that
+   declaration is inert and the white title renders in the LIGHT band. [F100] */
 .demo-plate-body {
   padding: var(--space-chrome) var(--space-chrome) var(--space-xs);
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   flex: 1;
 }
 
