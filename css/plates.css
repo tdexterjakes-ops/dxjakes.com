@@ -213,6 +213,15 @@ html.dark-mode .plate-title.inverse {
   transform: scale(1.02);
 }
 
+/* Scrim. Bottom-heavy by design — the title sits at the bottom
+   (.plate-body is flex-end) where the black is .78. The upper stops used to
+   fall to .08/.14, which was safe only while every title fit inside the
+   bottom band. A three-line Anton title on a 283px plate does not: it starts
+   ~7% from the top, and on `.img-concrete`, whose texture opens on a #c7c7c7
+   band, white large text measured 2.68:1 against a 3:1 floor. The upper stops
+   now carry enough black that the scrim holds for a title of ANY length on
+   ANY texture — worst case across the eight live image plates went 2.68:1 ->
+   4.17:1, and the gradient stays bottom-heavy so the texture still reads. [F101] */
 .plate-image::after {
   content: "";
   position: absolute;
@@ -220,8 +229,8 @@ html.dark-mode .plate-title.inverse {
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, .78),
-    rgba(0, 0, 0, .08) 55%,
-    rgba(0, 0, 0, .14)
+    rgba(0, 0, 0, .26) 55%,
+    rgba(0, 0, 0, .34)
   );
   z-index: 1;
 }
