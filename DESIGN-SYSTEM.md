@@ -660,13 +660,18 @@ Shared image plate rules:
 }
 .plate-image::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.08) 55%, rgba(0,0,0,.14));
+  background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.26) 55%, rgba(0,0,0,.34));
   z-index: 1;
 }
 /* Load-bearing, not cosmetic: the ::after gradient is .78 black at the BOTTOM
-   and only .14 at the top, so the white title is only readable if it sits at
-   the bottom. This works because .plate-body is `display: flex; flex-direction:
-   column` — justify-content on a block container does nothing. [F100] */
+   and .34 at the top, so the white title reads best when it sits at the
+   bottom. This works because .plate-body is `display: flex; flex-direction:
+   column` — justify-content on a block container does nothing. [F100]
+   The upper stops are .26/.34 rather than the .08/.14 they carried until
+   2026-09-06: flex-end only puts the title at the bottom when the title FITS
+   there, and a three-line Anton title starts ~7% from the top. On .img-concrete
+   (texture opens on a #c7c7c7 band) that measured 2.68:1 against a 3:1 large-text
+   floor. The scrim now holds for any title length on any texture. [F101] */
 .plate-image .plate-body { justify-content: flex-end; padding: var(--space-md); }
 .plate-image .plate-title { color: #fff; text-shadow: 0 2px 0 rgba(0,0,0,.45); }
 .plate-image .meta-rail { color: #0a0a0a; background: #f5f5f1; border-color: #0a0a0a; }
