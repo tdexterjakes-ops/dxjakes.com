@@ -461,6 +461,24 @@ that matches one of these shapes is a measurement artifact until proven otherwis
   cream at ~1.06:1 for every title, deck and lane chip on them. The design is
   light-on-dark by construction and `.plate-lane` carries its own `rgba(0,0,0,.72)`
   chip; `.meta-rail` carries an opaque cream rail. Skip these in automated sweeps.
+- **"Skip the image plates" is a blind spot, not a rule — the skip hides real defects.**
+  The entry above is correct that walking `background-color` up from a title on an
+  image plate reports ~1.06:1 and is meaningless. But *dismissing* every such reading
+  as the artifact is how F100 sat undetected: `/brand/`'s `.demo-plate-body` had lost
+  the `display: flex` that makes `justify-content: flex-end` work, so its white titles
+  really were sitting in the LIGHT end of the `::after` gradient at 2.61:1 — and the
+  probe reported the same 1.06:1 it reports for a perfectly readable plate. The two are
+  indistinguishable from computed styles, by construction. Before dismissing, check the
+  geometry: read `justify-content` **and** `display` on the `.plate-body` / `.demo-plate-body`,
+  and the title's `titleTopFrac` within its plate. A title in the top third of a
+  `to top, rgba(0,0,0,.78) → .14` gradient is in the wrong band whatever the probe says.
+  To settle it, rasterise: `--headless=new --screenshot` in system Chrome against the
+  local `dist` (`python3 -m http.server` from `dist/`, `--window-size=1280,12000` for a
+  full-page capture), then sample pixels with PIL in a glyph-free strip beside the text
+  at the title's own y-band and take the median and the lightest. That is the only
+  measurement that sees through pseudo-elements, gradients and `filter:`.
+  Note the pane's own `computer` screenshots are NOT a substitute here — see the
+  pane-hidden entry below; they returned blank frames throughout this diagnosis.
 - **Composite the whole ancestor stack, not just the nearest background.** A probe
   that stops at the first non-transparent ancestor mis-reports `.lead-badge-lane`,
   `.row-num`, `.lane-count` and friends. Composite semi-transparent layers down to

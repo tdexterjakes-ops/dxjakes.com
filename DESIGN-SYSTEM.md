@@ -663,9 +663,22 @@ Shared image plate rules:
   background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.08) 55%, rgba(0,0,0,.14));
   z-index: 1;
 }
+/* Load-bearing, not cosmetic: the ::after gradient is .78 black at the BOTTOM
+   and only .14 at the top, so the white title is only readable if it sits at
+   the bottom. This works because .plate-body is `display: flex; flex-direction:
+   column` — justify-content on a block container does nothing. [F100] */
+.plate-image .plate-body { justify-content: flex-end; padding: var(--space-md); }
 .plate-image .plate-title { color: #fff; text-shadow: 0 2px 0 rgba(0,0,0,.45); }
 .plate-image .meta-rail { color: #0a0a0a; background: #f5f5f1; border-color: #0a0a0a; }
 ```
+
+**Mirror the layout, not just the color.** `/brand/`'s `.demo-plate-*` specimens exist to
+dogfood these rules, and a mirror that copies the paint but drops the box model is worse than
+no mirror — it documents a component the site does not ship. `.demo-plate-body` carried
+`justify-content: flex-end` for the image-plate variant but not the `display: flex` that makes
+it do anything, so every specimen title rendered in the LIGHT end of the gradient at 2.6:1
+while production rendered it in the dark end at 19:1 [F100]. When a specimen and its production
+component disagree, the specimen is wrong until proven otherwise.
 
 **Phase 3a change (2026-04-10):** Image plates used to flip to white fills in dark mode via an `invert(1)` on the `::before` filter and a mirrored gradient. That created a fragmented visual field — textured plates bleached out against adjacent dark plain plates. Image plates now stay dark in both modes. The only dark-mode override is none. The grayscale filter and black-to-transparent gradient hold in light and dark.
 
@@ -1313,6 +1326,17 @@ grep -rn --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=audit \
 
 (`audit/` is excluded because the feature ledger quotes these paths as prose and would otherwise
 report a phantom eighth `tokens.css` reference.)
+
+**The route-scoped sheets version on their own scheme and the grep above cannot see them.**
+`/brand/brand.css` uses `?v=brandN`, not `?v=phaseNN`, so it falls outside both the `/css/`
+path prefix and the `phase` token. It has one reference today (`brand/index.html`), so it
+cannot drift against itself — but it still has to be bumped whenever `brand/brand.css` changes,
+or `/brand/` serves a stale immutable copy of its own bespoke sheet. Sweep it separately:
+
+```
+grep -rn --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=audit \
+  -oE '/(brand|phase0)/[a-z0-9-]+\.css\?v=[a-z0-9]+' . | sort
+```
 
 Every sheet should show exactly one `?v=` across all of its references; two distinct values for
 one filename is the drift. For the high-water mark:
